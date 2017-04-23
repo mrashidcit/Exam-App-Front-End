@@ -1,0 +1,46 @@
+<h3>Add New Question</h3>
+
+<form name="questionForm"  #questionForm="ngForm" >
+  <div class="form-group">
+    <label for="question">Question:</label>
+    <textarea name="question" required [(ngModel)]="question.question" id="question" cols="40" rows="1" #spyQuestion></textarea>
+      <br>TODO: remove this: {{spyQuestion.className}}
+  </div>
+
+  <div class="form-group">
+    <label for="a">A: </label>
+    <input [(ngModel)]="question.a" type="text" name="a" id="a" required />
+  </div>
+
+  <div class="form-group">
+    <label for="b">B: </label>
+    <input [(ngModel)]="question.b" type="text" name="b" id="b" required />
+  </div>
+
+  <div class="form-group">
+    <label for="c">C: </label>
+    <input [(ngModel)]="question.c" type="text" name="c" id="c" />
+  </div>
+
+  <div class="form-group">
+    <label for="d">D: </label>
+    <input [(ngModel)]="question.d" type="text" name="d" id="d" />
+  </div>
+
+  <div class="form-group">
+    <label for="correct_option">Correct Answer: </label>
+    <select [(ngModel)]="question.correct_option" name="correct_option" id="correct_option">
+      <option value=""><-Select-></option>
+      <option value="a">A</option>
+      <option value="b">B</option>
+      <option value="c">C</option>
+      <option value="d">D</option>
+
+    </select>
+  </div>
+
+  <button type="submit"  (click)="add(question)" class="btn btn-default">Save</button>
+
+
+
+</form>

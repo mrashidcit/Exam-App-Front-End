@@ -1,0 +1,44 @@
+<!-- <button class="btn btn-primary" (click)="onGetGrades()">Get Grades</button>
+-->
+
+<button (click)="setSelection()">{{selectionState ? 'hide' : 'show'}}</button>
+
+
+<form >
+
+    <span>Items</span>
+    <select ng-model="selectedItem" ng-options="item as item.label for item in items track by item.id"  name="itemLabel">
+
+    </select>
+
+    <!--<select ng-model="selectedItem">
+        <option ng-repeat="item in items" value="item.id">{{item.label}}</option>
+    </select>
+    -->
+</form>
+
+
+<form >
+
+    <span>Grade</span>
+     <select ng-model="selectionId" ng-options="grade.name for grade in grades track by grade.id">
+
+    </select>
+
+
+</form>
+
+
+
+<div *ngIf="selectionState" >
+    <span >selection.name = {{selection.name}}</span><br>
+    <span >Selected_Id = {{selectedItem.label}}</span>
+
+</div>
+
+<div >
+
+
+</div>
+
+
