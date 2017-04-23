@@ -31,7 +31,34 @@ export class NewQuestionComponent implements OnInit {
         .then(
             question => this.question = question
 
+
+
         );
+  }
+
+  onSubmit(): void {
+
+    this.submitted = true;
+
+    console.log(this.question);
+
+    this.questionService.create(this.question)
+        .then(
+            question => (this.question = question,
+            console.log('Successfully Saved'),
+            this.submitted = false)
+        );
+
+    /*
+    console.log(question);
+
+
+    this.questionService.create(question)
+        .then(
+            question => this.question = question
+
+        );
+    */
   }
 
 }
