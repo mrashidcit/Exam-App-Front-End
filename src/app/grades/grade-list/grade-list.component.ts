@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Grade} from "../grade.interface";
-import {GradeService} from "../grade.service";
 import {Response} from "@angular/http";
+
+import {Grade} from "../../interfaces/grade.interface";
+import {GradeService} from "../../services/grade.service";
 
 @Component({
   selector: 'app-grade-list',
@@ -12,7 +13,7 @@ export class GradeListComponent implements OnInit {
 
   grades: Grade[];
   selectionState: boolean = false;
-  items;
+
   selectedItem;
   selection: Grade;
   selectionId: string ;

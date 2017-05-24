@@ -1,0 +1,10 @@
+<span>Grade</span>
+<select *ngIf="grades" [(ngModel)]="grade_id">
+  <option *ngFor="let grade of grades" value="{{grade.id}}">
+    {{grade.name}}
+  </option>
+</select>
+
+<button (click)="send()">Send</button>
+
+<span>{{grade_id}}</span>

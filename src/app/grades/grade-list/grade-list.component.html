@@ -21,12 +21,14 @@
 <form >
 
     <span>Grade</span>
-     <select ng-model="selectionId" ng-options="grade.name for grade in grades track by grade.id">
+     <select [(ngModel)]="selectionId" ng-options="grade.name for grade in grades track by grade.id">
 
     </select>
 
 
 </form>
+
+{{selectionId}}
 
 
 
@@ -36,9 +38,5 @@
 
 </div>
 
-<div >
-
-
-</div>
 
 

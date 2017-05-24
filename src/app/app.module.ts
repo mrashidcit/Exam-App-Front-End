@@ -4,15 +4,24 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { GradeListComponent } from './grade-list/grade-list.component';
+import { GradeListComponent } from './grades/grade-list/grade-list.component';
 import {routing} from "./app.routing";
-import {GradeService} from "./grade.service";
-import { SubjectListComponent } from './subject-list/subject-list.component';
+import {GradeService} from "./services/grade.service";
+
 import {SubjectService} from "./services/subject.service";
-import { NewQuestionComponent } from './new-question/new-question.component';
-import { QuestionListComponent } from './question-list/question-list.component';
+
+
+
+import { QuestionComponent } from './questions/question/question.component';
+
+import { AdminComponent } from './admin/admin.component';
+import { GradeComponent } from './grades/grade/grade.component';
+import { SubjectComponent } from './subjects/subject/subject.component';
+import { SubjectMenuComponent } from './subjects/subject-menu/subject-menu.component';
+import { GradeMenuComponent } from './grades/grade-menu/grade-menu.component';
+import {NewQuestionComponent} from "./new-question/new-question.component";
 import {QuestionService} from "./question.service";
-import { QuestionComponent } from './question/question.component';
+
 
 
 
@@ -21,10 +30,16 @@ import { QuestionComponent } from './question/question.component';
   declarations: [
     AppComponent,
     GradeListComponent,
-    SubjectListComponent,
     NewQuestionComponent,
-    QuestionListComponent,
-    QuestionComponent
+
+
+    QuestionComponent,
+
+    AdminComponent,
+    GradeComponent,
+    SubjectComponent,
+    SubjectMenuComponent,
+    GradeMenuComponent
   ],
   imports: [
     BrowserModule,

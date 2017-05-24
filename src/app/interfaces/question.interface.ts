@@ -11,7 +11,7 @@ export class Question {
     constructor(subject: number){
         this.id = 0;
         this.subject_id = 4;
-        this.question = 'Hello';
+        this.question = '';
         this.a = '';
         this.b = '';
         this.c = '';

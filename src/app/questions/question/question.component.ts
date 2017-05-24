@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {QuestionService} from "../question.service";
 import {ActivatedRoute, Params} from "@angular/router";
-import {Question} from "../interfaces/question.interface";
+
+
+import {QuestionService} from "../../question.service";
+import {Question} from "../../interfaces/question.interface";
+
 
 @Component({
   selector: 'app-question',

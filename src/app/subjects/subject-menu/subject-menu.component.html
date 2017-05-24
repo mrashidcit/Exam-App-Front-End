@@ -1,0 +1,7 @@
+<select *ngIf="subjects" [(ngModel)]="subject_id">
+  <option *ngFor="let subject of subjects" value="{{subject.id}}">
+    {{subject.name}}
+  </option>
+</select>
+
+Subject_id = {{subject_id}}
