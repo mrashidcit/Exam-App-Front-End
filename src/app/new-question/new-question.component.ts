@@ -6,6 +6,11 @@ import {Grade} from "../interfaces/grade.interface";
 import {Subject} from "../interfaces/subject.interface";
 import {Response} from "@angular/http";
 import {SubjectService} from "../services/subject.service";
+import {Input} from "@angular/core/src/metadata/directives";
+import {element, ElementFinder} from "protractor";
+import {Element} from "@angular/compiler/src/ml_parser/ast";
+import {DomAdapter} from "@angular/platform-browser/src/dom/dom_adapter";
+
 
 @Component({
   selector: 'app-new-question',
@@ -14,7 +19,8 @@ import {SubjectService} from "../services/subject.service";
 })
 export class NewQuestionComponent implements OnInit {
 
-  question: Question;
+
+  question: Question; // Contains values of current question entries
   grades: Grade[];
   subjects: Subject[];
 
@@ -34,13 +40,11 @@ export class NewQuestionComponent implements OnInit {
       private gradeService: GradeService,
       private subjectService: SubjectService) {
 
-    this.onGetGrades();
-    this.grade_id = 1;
-    this.subject_id = 1;
-    this.question = new Question(this.subject_id);
+
   }
 
   ngOnInit() {
+
   }
 
   add(question: Question): void {
@@ -60,34 +64,47 @@ export class NewQuestionComponent implements OnInit {
     console.log(this.question);
 
     this.questionService.create(this.question)
-        .then(
-            question => (this.question = question,
-                    this.showMsg = true,
+        .then(question => {
+              this.question = question;
+              this.showMsg = true;
 
-                    // now reseting question Object
-                    this.question = new Question(this.subject_id)
+               setTimeout(() => {
+                 this.showMsg = false;
 
-              )
-        );
-
-    /*
-    console.log(question);
+               }, 5000);
 
 
-    this.questionService.create(question)
-        .then(
-            question => this.question = question
+              // now reseting question Object
+              this.question = new Question(this.currentSubject.id)
+            }
+
 
         );
-    */
+
   } // end onSubmit()
+
+  myElement: DOM;
+
+  my: HTMLElement;
+
+  showMessage(){
+    this.showMsg = true;
+
+    setTimeout(() => {this.showMsg = false;}, 3000);
+
+
+
+    this.my =  this.myElement.getElementsByClassName("textarea", "question")[0];
+
+    console.log(this.my.innerText);
+
+  }
 
   onGetGrades(){
     this.gradeService.getGrades()
         .subscribe(
-            (grades: Grade[]) => (this.grades = grades, console.log(this.grades)), //this.grades = grades,
+            (grades: Grade[]) => this.grades = grades, //this.grades = grades,
             (error: Response) => console.log(error)
-
         );
   } // end onGetGrades()
 
@@ -102,8 +119,35 @@ export class NewQuestionComponent implements OnInit {
   } // end onGetSubjectofOneGrade()
 
 
-  getGradeId(grade_id: number){
-    console.log("Grade_id = " + grade_id);
+  currentGrade: Grade;
+
+  // get Grade from grade-menu component
+  getGrade(grade: Grade){
+    this.currentGrade = grade;
+
   }
+
+  currentSubject: Subject;
+
+  // get Subject from subject-menu component
+  getSubjectfromSubjectMenu(subject: Subject){
+    this.currentSubject = subject;
+
+  }
+
+  allowNewQestionToggle(){
+    this.allow_new_question =
+        this.allow_new_question ? false : true;
+
+    if(this.currentSubject && this.allow_new_question){
+      this.question = new Question(this.currentSubject.id);
+    }
+
+
+  }
+
+
+
+
 
 }

@@ -1,7 +1,18 @@
-<select *ngIf="subjects" [(ngModel)]="subject_id">
-  <option *ngFor="let subject of subjects" value="{{subject.id}}">
-    {{subject.name}}
-  </option>
-</select>
 
-Subject_id = {{subject_id}}
+<span *ngIf="subjects">
+    Subject:
+    <select
+            (change)="setCurrentSubject(); sendSubjectToNewQuestionComponent();"
+            [(ngModel)]="subject_id">
+      <option *ngFor="let subject of showSubjects"
+        value="{{subject.id}}">
+          {{subject.name}}
+      </option>
+    </select>
+
+
+</span>
+
+<span *ngIf="!subjects">
+    Loading...
+</span>

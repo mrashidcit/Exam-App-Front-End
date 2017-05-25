@@ -1,8 +1,11 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, OnChanges, EventEmitter} from '@angular/core';
 import {Response} from "@angular/http";
 
 import {Subject} from "../../interfaces/subject.interface";
 import {SubjectService} from "../../services/subject.service";
+import {Grade} from "../../interfaces/grade.interface";
+import {Output} from "@angular/core/src/metadata/directives";
+
 
 
 
@@ -11,37 +14,95 @@ import {SubjectService} from "../../services/subject.service";
   templateUrl: './subject-menu.component.html',
   styleUrls: ['./subject-menu.component.css']
 })
-export class SubjectMenuComponent implements OnInit {
-  @Input() grade_id: number;
+export class SubjectMenuComponent implements OnInit, OnChanges {
+  @Input() grade: Grade;
+  @Output() sendSubject = new EventEmitter<Subject>();
 
   subjects: Subject[];
 
   subject_id: number;
 
+  showSubjects: Subject[];
+
+  currentSubject: Subject;
 
 
-  constructor( private subjectService: SubjectService) { }
+
+    constructor( private subjectService: SubjectService) { }
+
+  ngOnChanges(){
+
+        // Refresh the SubjectMenu if subjects are loaded
+      if(this.subjects){
+          this.refreshSubjectsMenu();
+      }
+  }
 
   ngOnInit() {
 
 
+    this.getSubjects();
 
-    this.getSubjects(+this.grade_id);
+
 
   }
 
 
-  getSubjects(grade_id: number){
+  getSubjects(){
 
-    this.subjectService.getSubjects(grade_id)
+    this.subjectService.getSubjects()
         .subscribe(
             (subjects: Subject[]) => {
               this.subjects = subjects;
-              this.subject_id = this.subjects[0].id;
+
+              this.showSubjects = this.subjects
+                  .filter((subject: Subject) => subject.class_id === this.getGradeId());
+              // Assign first id of showSubjects item to this.sbuject_id
+              this.subject_id = this.showSubjects[0].id;
+                this.setCurrentSubject();
+                this.sendSubjectToNewQuestionComponent();
+
+
+
             },
             (error: Response) => console.log(error)
         )
-  }
+  } // end getSubjects()
+
+
+  // get Grade id
+    getGradeId(){
+        return this.grade ? +this.grade.id : 1;
+    }
+
+
+    refreshSubjectsMenu(){
+        this.showSubjects = this.subjects
+            .filter((subject: Subject) => subject.class_id === this.getGradeId());
+
+        this.subject_id = this.showSubjects[0].id;
+    }
+
+    // Send Subject Object to Question Component
+    sendSubjectToNewQuestionComponent(){
+
+        this.sendSubject.emit(this.currentSubject);
+
+    }
+
+
+    // used to set CurrentSubject object during change in
+    // dropdown menu
+    setCurrentSubject(){
+        let subjects =  this.showSubjects
+            .filter((subject: Subject) => subject.id === +this.subject_id);
+
+        this.currentSubject = subjects[0];
+
+
+
+    }
+
 
 
 }

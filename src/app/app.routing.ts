@@ -10,7 +10,7 @@ import {AdminComponent} from "./admin/admin.component";
 import {NewQuestionComponent} from "./new-question/new-question.component";
 
 const APP_ROUTES: Routes = [
-    {path: '', redirectTo:'/admin', pathMatch:"full" },
+    {path: '', redirectTo:'/new-question', pathMatch:"full" },
     {path: 'admin', component:AdminComponent},
 
     {path: 'new-question', component:NewQuestionComponent},

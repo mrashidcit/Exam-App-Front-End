@@ -8,9 +8,9 @@ export class Question {
     d: string;
     correct_option: string;
 
-    constructor(subject: number){
+    constructor(subject_id: number){
         this.id = 0;
-        this.subject_id = 4;
+        this.subject_id = subject_id;
         this.question = '';
         this.a = '';
         this.b = '';

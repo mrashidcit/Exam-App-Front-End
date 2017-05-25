@@ -13,8 +13,8 @@ export class SubjectService {
 
     subject_link = "http://localhost:8000/api/subjects";
 
-    getSubjects(grade_id: number): Observable<any> {
-        return this.http.get(`http://localhost:8000/api/subjects/${grade_id}`)
+    getSubjects(): Observable<any> {
+        return this.http.get(`http://localhost:8000/api/subjects`)
             .map(
                 (response: Response) => {
                     return response.json().subjects;
