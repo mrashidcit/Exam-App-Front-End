@@ -1,0 +1,40 @@
+<div *ngIf="question">
+  <div class="row">
+    <div class="col-sm-3">Grade: 9th</div>
+    <div class="col-sm-3">Subject: Computer</div>
+    <div class="col-sm-3">Time: 90 sec</div>
+  </div>
+
+  <div class="row quiz-form">
+    <form class="col-sm-6 " action="">
+      <div class=" form-group">
+        1. <label >{{question?.question}}</label>
+      </div>
+
+      <div class="form-group">
+        <input #a (click)="allowSaveAndNext(); setAnswer('a')"
+               name="choice" value="a"  type="radio" > {{question?.a}} <br>
+        <input (click)="allowSaveAndNext(); setAnswer('b')"
+               name="choice" value="b"  type="radio" > {{question?.b}} <br>
+        <input (click)="allowSaveAndNext(); setAnswer('c')"
+               name="choice" value="c"  type="radio" > {{question?.c}} <br>
+        <input (click)="allowSaveAndNext(); setAnswer('d')"
+               name="choice" value="d"  type="radio" > {{question?.d}} <br>
+
+
+
+      </div>
+
+      <button class="btn btn-success btn-default"
+          [disabled]="!allowSaveNext"
+          (click)="next()">
+        Save & Next
+      </button>
+
+
+
+
+    </form>
+  </div>
+
+</div>

@@ -1,0 +1,71 @@
+
+<div class="col-sm-12">
+
+  <div *ngIf="!showEdit"  class="row">
+    <h3>Questions List</h3>
+
+    <div class="grade-subject-menu">
+
+        <app-grade-menu class="col-sm-3"
+            (sendgrade)="getGrade($event)"
+            >
+
+        </app-grade-menu>
+
+        <app-subject-menu
+                (sendSubject)="getSubjectfromSubjectMenu($event)"
+                class="col-sm-3">
+
+        </app-subject-menu>
+
+        <button
+             (click)="getQuestionList()">
+            Search
+        </button>
+
+    </div>
+
+  </div>
+
+<div  *ngIf="!showEdit" class="detail_table">
+    <table *ngIf="questions" class="table table-bordered">
+      <thead>
+      <tr>
+        <th>No.</th>
+        <th>Questions</th>
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
+        <th>D</th>
+        <th>Action</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let question of questions; let i =index; ">
+        <td>{{i + 1}}</td>
+        <td>{{question.question}}</td>
+        <td>{{question.a}}</td>
+        <td>{{question.b}}</td>
+        <td>{{question.c}}</td>
+        <td>{{question.d}}</td>
+        <td><button (click)="selectQuestion(question)">Edit</button></td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+    <div *ngIf="showEdit" class="edit-question">
+        <app-edit-question
+                [question]="selectedQuestion"
+                (showEditStatus)="receiveShowEditStatus($event)">
+
+        </app-edit-question>
+
+
+    </div>
+
+
+</div>
+

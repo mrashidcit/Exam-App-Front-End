@@ -21,6 +21,10 @@ import { SubjectMenuComponent } from './subjects/subject-menu/subject-menu.compo
 import { GradeMenuComponent } from './grades/grade-menu/grade-menu.component';
 import {NewQuestionComponent} from "./new-question/new-question.component";
 import {QuestionService} from "./question.service";
+import { QuestionListComponent } from './questions/question-list/question-list.component';
+import { EditQuestionComponent } from './questions/edit-question/edit-question.component';
+import { QuizParentComponent } from './quiz-parent/quiz-parent.component';
+import { QuizComponent } from './quiz-parent/quiz/quiz.component';
 
 
 
@@ -39,7 +43,11 @@ import {QuestionService} from "./question.service";
     GradeComponent,
     SubjectComponent,
     SubjectMenuComponent,
-    GradeMenuComponent
+    GradeMenuComponent,
+    QuestionListComponent,
+    EditQuestionComponent,
+    QuizParentComponent,
+    QuizComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +55,8 @@ import {QuestionService} from "./question.service";
     HttpModule,
     routing
   ],
+
+
   providers: [
       GradeService,
       SubjectService,

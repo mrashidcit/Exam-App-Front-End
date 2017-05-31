@@ -10,6 +10,7 @@ import {Input} from "@angular/core/src/metadata/directives";
 import {element, ElementFinder} from "protractor";
 import {Element} from "@angular/compiler/src/ml_parser/ast";
 import {DomAdapter} from "@angular/platform-browser/src/dom/dom_adapter";
+import {ViewChild} from "@angular/core/src/metadata/di";
 
 
 @Component({
@@ -21,19 +22,14 @@ export class NewQuestionComponent implements OnInit {
 
 
   question: Question; // Contains values of current question entries
-  grades: Grade[];
-  subjects: Subject[];
+  //grades: Grade[];
+  //subjects: Subject[];
 
   allow_new_question: boolean = false;
-
 
   submitted = false;
 
   showMsg = false;
-
-
-  grade_id: number;
-  subject_id: number; // Store subjectId of currently selected subject
 
   constructor(
       private questionService: QuestionService,
@@ -48,7 +44,7 @@ export class NewQuestionComponent implements OnInit {
   }
 
   add(question: Question): void {
-    console.log(question);
+    //console.log(question);
 
     this.questionService.create(question)
         .then(
@@ -56,6 +52,9 @@ export class NewQuestionComponent implements OnInit {
 
         );
   }
+
+  @ViewChild("myQuestion") txtArea;
+
 
   onSubmit(): void {
 
@@ -73,6 +72,7 @@ export class NewQuestionComponent implements OnInit {
 
                }, 5000);
 
+              this.setFocusonQuestionTextBox();
 
               // now reseting question Object
               this.question = new Question(this.currentSubject.id)
@@ -83,45 +83,32 @@ export class NewQuestionComponent implements OnInit {
 
   } // end onSubmit()
 
-  myElement: DOM;
 
-  my: HTMLElement;
+  setFocusonQuestionTextBox(){
+    // Setting Focus on Question TextArea
+    this.txtArea.nativeElement.focus();
+
+
+
+  }
+
+
+
+
 
   showMessage(){
     this.showMsg = true;
 
-    setTimeout(() => {this.showMsg = false;}, 3000);
-
-
-
-    this.my =  this.myElement.getElementsByClassName("textarea", "question")[0];
-
-    console.log(this.my.innerText);
+    setTimeout(
+        () => {this.showMsg = false;}, 3000);
 
   }
 
-  onGetGrades(){
-    this.gradeService.getGrades()
-        .subscribe(
-            (grades: Grade[]) => this.grades = grades, //this.grades = grades,
-            (error: Response) => console.log(error)
-        );
-  } // end onGetGrades()
-
-  onGetSubjectofOneGrade(){
-    this.subjectService.getSubjectofOneGrade(this.grade_id)
-        .subscribe(
-            (subjects: Subject[]) => (this.subjects = subjects,
-                console.log(this.subjects),
-                this.subject_id = this.subjects[0].id),
-            (error: Response) => console.log(error)
-        );
-  } // end onGetSubjectofOneGrade()
 
 
   currentGrade: Grade;
 
-  // get Grade from grade-menu component
+  // Grade from grade-menu component
   getGrade(grade: Grade){
     this.currentGrade = grade;
 
@@ -141,11 +128,11 @@ export class NewQuestionComponent implements OnInit {
 
     if(this.currentSubject && this.allow_new_question){
       this.question = new Question(this.currentSubject.id);
+      //this.setFocusonQuestionTextBox();
     }
 
 
   }
-
 
 
 

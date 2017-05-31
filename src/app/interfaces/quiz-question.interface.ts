@@ -1,4 +1,4 @@
-export class Question {
+export class QuizQuestion {
     id: number;
     subject_id: number;
     question: string;
@@ -11,7 +11,7 @@ export class Question {
     user_answer: string; // contains user answer
 
     static total_marks: number;
-    obtained_marks:  number;
+    static obtained_marks: number;
 
     constructor(subject_id: number){
         this.id = 0;

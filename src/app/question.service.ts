@@ -38,6 +38,7 @@ export class QuestionService {
 
     }
 
+
     getQuestion(id: Number): Promise<Question> {
 
         const url = `${this.questionsUrl}/${id}`;
@@ -45,6 +46,35 @@ export class QuestionService {
             .toPromise()
             .then(response => response.json().question as Question)
             .catch(this.handleError);
+
+    }
+
+
+    updateQuestion(question: Question, id: number): Promise<Question> {
+        const url = `${this.questionsUrl}/${id}`;
+
+
+        return this.http
+            .put(url, JSON.stringify(question),
+                    {headers: this.headers})
+            .toPromise()
+            .then(res => res.json().question as Question)
+            .catch(this.handleError);
+
+
+
+    } // end updateQuestion()
+
+    getQuestionList(id: Number): Observable<any>{
+
+        const url = `${this.questionsUrl}/question-list/${id}`;
+
+        return this.http.get(url)
+            .map(
+                (response: Response) => {
+                    return response.json().questions;
+                }
+            );
 
     }
 

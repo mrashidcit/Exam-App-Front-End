@@ -17,7 +17,7 @@
                       class="col-sm-3">
     </app-subject-menu>
 
-    <button *ngIf="currentGrade && currentSubject" (click)="allowNewQestionToggle()">ok</button>
+    <button  (click)="allowNewQestionToggle()">ok</button>
 
 
 
@@ -25,7 +25,7 @@
 
 <div *ngIf="allow_new_question">
 
-  <button (click)="showMessage()">Show Msg</button>
+
 
   <div class="form-group row" *ngIf="subjects">
     <label class="col-sm-2" for="correct_option">Subject: </label>
@@ -59,7 +59,7 @@
       <div class="form-group">
         <label class="control-label col-sm-2" for="quest">Question:</label>
         <div class="col-sm-6">
-      <textarea class="form-control question"  name="quest" [(ngModel)]="question.question"
+      <textarea #myQuestion autofocus class="form-control question"  name="quest" [(ngModel)]="question.question"
                 id="quest" cols="60" rows="3" required autofocus  ></textarea>
 
         </div>
@@ -122,14 +122,16 @@
         <div class="col-sm-offset-2 col-sm-6">
           <button type="submit"  class="btn btn-default"
                   [disabled]="!questionForm.form.valid">Save</button>
-          <button type="submit"  class="btn btn-default"
-                  (click)="allowNewQestionToggle()">Cancel</button>
+
+          <button  class="btn btn-default"
+                  (click)="allowNewQestionToggle(); ">Cancel</button>
+
+
         </div>
 
       </div>
 
     </form>
-
 
   </div>
 

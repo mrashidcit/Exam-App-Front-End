@@ -1,0 +1,106 @@
+
+<div class="col-sm-12">
+
+  <div [hidden]="!showMsg" class="col-sm-offset-1 cols-sm-8 alert alert-success">
+    Successfully Saved!
+
+  </div>
+
+  <h3>Edit Question</h3>
+
+    <div   class="form-group row">
+
+      <form class="form-horizontal" name="questionForm"
+            #questionForm="ngForm" >
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="quest">Question:</label>
+          <div class="col-sm-6">
+      <textarea #myQuestion autofocus class="form-control question"  name="quest" [(ngModel)]="question.question"
+                id="quest" cols="60" rows="3" required autofocus  ></textarea>
+
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="a">A: </label>
+          <div class="col-sm-6">
+            <input class="form-control" [(ngModel)]="question.a" type="text"
+                   name="a" id="a" required />
+
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="b">B: </label>
+          <div class="col-sm-6">
+            <input class="form-control" [(ngModel)]="question.b" type="text"
+                   name="b" id="b" required />
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="c">C: </label>
+          <div class="col-sm-6">
+            <input class="form-control" [(ngModel)]="question.c" type="text" name="c" id="c" required />
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="d">D: </label>
+          <div class="col-sm-6">
+            <input class="form-control" [(ngModel)]="question.d" type="text" name="d" id="d" required />
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2" for="correct_option">Correct Answer: </label>
+
+          <div class="col-sm-6">
+            <select [(ngModel)]="question.correct_option"  name="correct_option" id="correct_option" required>
+              <option value=""><-Select-></option>
+              <option value="a">A</option>
+              <option value="b">B</option>
+              <option value="c">C</option>
+              <option value="d">D</option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-6">
+            <button type="submit"  class="btn btn-default"
+                    [disabled]="!questionForm.form.valid"
+                    (click)="onSubmit()">Update</button>
+
+              <button type="submit"  class="btn btn-default"
+                      [disabled]="!questionForm.form.valid"
+                      (click)="onSubmit(); sendShowEditStatus();">Update & Back</button>
+
+
+              <button  class="btn btn-default"
+                     (click)="sendShowEditStatus() ">Back</button>
+
+
+          </div>
+
+        </div>
+
+      </form>
+
+
+    </div>
+
+
+
+
+
+
+</div>

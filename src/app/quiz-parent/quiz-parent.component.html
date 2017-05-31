@@ -1,0 +1,34 @@
+<div>
+  <div *ngIf="!showQuizForm" class="row">
+    <h3>Conduct Quiz</h3>
+
+    <div class="grade-subject-menu">
+
+      <app-grade-menu class="col-sm-4"
+          (sendgrade)="getGradefromGradeMenu($event)">
+
+      </app-grade-menu>
+
+      <app-subject-menu
+              (sendSubject)="getSubjectFromSubjectMenu($event)"
+              class="col-sm-4">
+
+      </app-subject-menu>
+
+      <button (click)="startQuiz()">
+          Start
+      </button>
+
+    </div>
+  </div>
+  {{currentQuestion | json}}
+  <div *ngIf="showQuizForm">
+    <app-quiz
+            [question]="currentQuestion"
+            (moveNext)="moveOnNextQuestion($event)"
+    >
+    </app-quiz>
+
+  </div>
+
+</div>
