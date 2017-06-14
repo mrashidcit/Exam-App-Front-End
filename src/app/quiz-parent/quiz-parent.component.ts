@@ -48,7 +48,7 @@ export class QuizParentComponent implements OnInit {
         .subscribe(
             (questions: Question[]) => {
               this.questions = questions;
-              this.currentQuestion = this.questions[this.questionNo];
+              this.currentQuestion = this.questions[this.questionNo++];
               this.toggleShowQuizForm();
 
             },
@@ -80,9 +80,27 @@ export class QuizParentComponent implements OnInit {
     if(moveNext){
       this.currentQuestion = this.questions[this.questionNo++];
 
-
     }
 
+  }
+
+
+  isQuestionNoValid(): boolean{
+
+    if(this.questionNo > this.questions.length){
+
+        return false;
+
+    } else {
+        return true;
+
+    }
+  }
+
+  result: boolean = false;
+
+  showResult() {
+      this.result = true;
   }
 
 

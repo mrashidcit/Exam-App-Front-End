@@ -21,14 +21,29 @@
 
     </div>
   </div>
-  {{currentQuestion | json}}
+
   <div *ngIf="showQuizForm">
+
     <app-quiz
             [question]="currentQuestion"
+            [questionNo]="questionNo"
+            [totalQuestions]="questions.length"
             (moveNext)="moveOnNextQuestion($event)"
     >
     </app-quiz>
 
+      <div *ngIf="!isQuestionNoValid()">
+          <button  (click)="showResult()">Show Result</button>
+      </div>
+
   </div>
+
+    <div *ngIf="result">
+        <app-show-result
+            [questions]="questions" >
+
+        </app-show-result>
+
+    </div>
 
 </div>

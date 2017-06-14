@@ -5,29 +5,40 @@
     <div class="col-sm-3">Time: 90 sec</div>
   </div>
 
+    <div class="row">
+        <p>Question: {{questionNo}} of {{ totalQuestions}}</p>
+    </div>
+
+
+
   <div class="row quiz-form">
-    <form class="col-sm-6 " action="">
-      <div class=" form-group">
-        1. <label >{{question?.question}}</label>
-      </div>
+    <form class="col-sm-6 " #quizForm="ngForm" action="">
 
-      <div class="form-group">
-        <input #a (click)="allowSaveAndNext(); setAnswer('a')"
-               name="choice" value="a"  type="radio" > {{question?.a}} <br>
+      <div>Q: {{question.question}}</div>
+
+      <div class="form-group" >
+
+        <input  (click)="allowSaveAndNext(); setAnswer('a')"
+               [checked]="false" checked="false" #opt1  name="choice" value="a"  type="radio" > {{question?.a}} <br>
+
         <input (click)="allowSaveAndNext(); setAnswer('b')"
-               name="choice" value="b"  type="radio" > {{question?.b}} <br>
+               [checked]="false" #opt2  name="choice" value="b"  type="radio"  > {{question?.b}} <br>
         <input (click)="allowSaveAndNext(); setAnswer('c')"
-               name="choice" value="c"  type="radio" > {{question?.c}} <br>
+               [checked]="false" #opt3  name="choice" value="c"  type="radio" > {{question?.c}} <br>
         <input (click)="allowSaveAndNext(); setAnswer('d')"
-               name="choice" value="d"  type="radio" > {{question?.d}} <br>
-
-
+               [checked]="false" #opt4  name="choice" value="d"  type="radio" > {{question?.d}} <br>
 
       </div>
 
       <button class="btn btn-success btn-default"
           [disabled]="!allowSaveNext"
-          (click)="next()">
+            (click)="next();
+            opt1.checked = false;
+            opt2.checked = false;
+            opt3.checked = false;
+            opt4.checked = false;
+
+">
         Save & Next
       </button>
 
@@ -38,3 +49,4 @@
   </div>
 
 </div>
+

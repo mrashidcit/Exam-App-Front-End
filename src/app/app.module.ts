@@ -25,6 +25,7 @@ import { QuestionListComponent } from './questions/question-list/question-list.c
 import { EditQuestionComponent } from './questions/edit-question/edit-question.component';
 import { QuizParentComponent } from './quiz-parent/quiz-parent.component';
 import { QuizComponent } from './quiz-parent/quiz/quiz.component';
+import { ShowResultComponent } from './quiz-parent/show-result/show-result.component';
 
 
 
@@ -47,7 +48,8 @@ import { QuizComponent } from './quiz-parent/quiz/quiz.component';
     QuestionListComponent,
     EditQuestionComponent,
     QuizParentComponent,
-    QuizComponent
+    QuizComponent,
+    ShowResultComponent
   ],
   imports: [
     BrowserModule,
