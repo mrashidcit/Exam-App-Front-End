@@ -11,6 +11,8 @@ import {element, ElementFinder} from "protractor";
 import {Element} from "@angular/compiler/src/ml_parser/ast";
 import {DomAdapter} from "@angular/platform-browser/src/dom/dom_adapter";
 import {ViewChild} from "@angular/core/src/metadata/di";
+// ViewChild add
+
 
 
 @Component({
