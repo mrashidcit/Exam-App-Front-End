@@ -65,6 +65,8 @@ export class QuestionService {
 
     } // end updateQuestion()
 
+
+    // Getting questions for Quiz
     getQuestionList(id: Number): Observable<any>{
 
         const url = `${this.questionsUrl}/question-list/${id}`;
