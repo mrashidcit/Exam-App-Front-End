@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 
-import {QuestionService} from "../question.service";
-import {Grade} from "../interfaces/grade.interface";
-import {Subject} from "../interfaces/subject.interface";
+import {QuestionService} from "../../question.service";
+import {Grade} from "../../interfaces/grade.interface";
+import {Subject} from "../../interfaces/subject.interface";
 import {Response} from "@angular/http";
-import {Question} from "../interfaces/question.interface";
+import {Question} from "../../interfaces/question.interface";
 
 @Component({
   selector: 'app-quiz-parent',

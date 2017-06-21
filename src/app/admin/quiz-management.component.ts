@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-questions',
+  selector: 'app-quiz-management',
   template: `
     
-    <app-question-list></app-question-list>
+    <app-quiz-parent></app-quiz-parent>
   `,
   styles: []
 })
-export class QuestionsComponent implements OnInit {
+export class QuizManagementComponent implements OnInit {
 
   constructor() { }
 

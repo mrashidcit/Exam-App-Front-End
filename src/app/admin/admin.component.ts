@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
       
         <li role="presentation"><a routerLink="./new-question">Add New Question</a></li>
         <li role="presentation"><a routerLink="./manage-questions">Manage Questions</a></li>
-        <li role="presentation"><a routerLink="">Quiz</a></li>
+        <li role="presentation"><a routerLink="./quiz-management">Quiz</a></li>
       
       
       </ul>
@@ -15,8 +15,7 @@ import { Component, OnInit } from '@angular/core';
       <router-outlet></router-outlet>
     
 
-`,
-  styleUrls: ['./admin.component.css']
+`
 })
 export class AdminComponent implements OnInit {
 

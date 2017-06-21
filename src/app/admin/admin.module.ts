@@ -8,35 +8,36 @@ import {NewQuestionComponent} from "./new-question/new-question.component";
 import {GradeService} from "../services/grade.service";
 import {SubjectService} from "../services/subject.service";
 import {QuestionService} from "../question.service";
-import {GradeMenuComponent} from "./menu/grade-menu/grade-menu.component";
-import {SubjectMenuComponent} from "./menu/subject-menu/subject-menu.component";
 import {FormsModule} from "@angular/forms";
 import { ManageQuestionsComponent } from './manage-questions.component';
+import {SharedModule} from "../shared/shared.module";
 import {QuestionsModule} from "../questions/questions.module";
-
+import { QuizManagementComponent } from './quiz-management.component';
+import {QuizModule} from "../quiz/quiz.module";
 
 @NgModule({
-    declarations: [
-        AdminComponent,
-        NewQuestionComponent,
-        GradeMenuComponent,
-        SubjectMenuComponent,
-        AdminDashboardComponent,
-        ManageQuestionsComponent,
-
-    ],
     imports: [
         CommonModule,
         FormsModule,
         //HttpModule,
-
-        AdminRoutingModule,
+        SharedModule,
+        QuizModule,
         QuestionsModule,
+        AdminRoutingModule,
 
     ],
+
+    declarations: [
+        AdminComponent,
+        NewQuestionComponent,
+        AdminDashboardComponent,
+        ManageQuestionsComponent,
+        QuizManagementComponent,
+
+    ],
+
     exports: [
-        GradeMenuComponent,
-        SubjectMenuComponent
+
     ],
 
 

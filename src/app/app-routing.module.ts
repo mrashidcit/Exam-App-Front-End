@@ -4,14 +4,14 @@ import {Routes, RouterModule} from "@angular/router";
 import {QuestionComponent} from "./questions/question/question.component";
 import {NewQuestionComponent} from "./admin/new-question/new-question.component";
 //import {QuestionListComponent} from "./questions/question-list/question-list.component";
-import {QuizParentComponent} from "./quiz-parent/quiz-parent.component";
+import {QuizParentComponent} from "./quiz/quiz-parent/quiz-parent.component";
 
 
 const appRoutes: Routes = [
-    {path: '', redirectTo:'/questions/question-list', pathMatch:"full" },
+    {path: '', redirectTo:'/quiz', pathMatch:"full" },
 
 
-    {path: 'quiz-parent', component:QuizParentComponent},
+    {path: 'quiz', component:QuizParentComponent},
 
 
 ];

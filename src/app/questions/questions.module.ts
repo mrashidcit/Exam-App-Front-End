@@ -6,13 +6,13 @@ import {QuestionListComponent} from "./question-list/question-list.component";
 import {QuestionComponent} from "./question/question.component";
 import {EditQuestionComponent} from "./edit-question/edit-question.component";
 import {QuestionsRoutingModule} from "./questions-routing.module";
-import {AdminModule} from "../admin/admin.module";
+import { SharedModule} from "../shared/shared.module";
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
-        AdminModule,
+        SharedModule,
         QuestionsRoutingModule,
 
     ],
@@ -21,8 +21,6 @@ import {AdminModule} from "../admin/admin.module";
         QuestionComponent,
         EditQuestionComponent,
         QuestionsComponent,
-
-
 
     ],
 

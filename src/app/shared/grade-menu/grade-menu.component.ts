@@ -1,10 +1,8 @@
 import {Component, Output, OnInit, EventEmitter} from '@angular/core';
 import {Response} from "@angular/http";
 
-import {Grade} from "../../../interfaces/grade.interface";
-import {GradeService} from "../../../services/grade.service";
-
-
+import {Grade} from "../../interfaces/grade.interface";
+import {GradeService} from "../../services/grade.service";
 
 
 
