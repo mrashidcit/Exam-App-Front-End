@@ -5,28 +5,16 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { GradeListComponent } from './grades/grade-list/grade-list.component';
-import {routing} from "./app.routing";
+import {AppRoutingModule} from "./app-routing.module";
 import {GradeService} from "./services/grade.service";
-
 import {SubjectService} from "./services/subject.service";
-
-
-
-import { QuestionComponent } from './questions/question/question.component';
-
-import { AdminComponent } from './admin/admin.component';
 import { GradeComponent } from './grades/grade/grade.component';
-import { SubjectComponent } from './subjects/subject/subject.component';
-import { SubjectMenuComponent } from './subjects/subject-menu/subject-menu.component';
-import { GradeMenuComponent } from './grades/grade-menu/grade-menu.component';
-import {NewQuestionComponent} from "./new-question/new-question.component";
 import {QuestionService} from "./question.service";
-import { QuestionListComponent } from './questions/question-list/question-list.component';
-import { EditQuestionComponent } from './questions/edit-question/edit-question.component';
 import { QuizParentComponent } from './quiz-parent/quiz-parent.component';
 import { QuizComponent } from './quiz-parent/quiz/quiz.component';
 import { ShowResultComponent } from './quiz-parent/show-result/show-result.component';
-
+import {AdminModule} from "./admin/admin.module";
+import {QuestionsModule} from "./questions/questions.module";
 
 
 
@@ -35,27 +23,25 @@ import { ShowResultComponent } from './quiz-parent/show-result/show-result.compo
   declarations: [
     AppComponent,
     GradeListComponent,
-    NewQuestionComponent,
-
-
-    QuestionComponent,
-
-    AdminComponent,
     GradeComponent,
-    SubjectComponent,
-    SubjectMenuComponent,
-    GradeMenuComponent,
-    QuestionListComponent,
-    EditQuestionComponent,
+
     QuizParentComponent,
     QuizComponent,
-    ShowResultComponent
+    ShowResultComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+
+    QuestionsModule,
+    AdminModule,
+    AppRoutingModule,
+
+  ],
+
+  exports: [
+
   ],
 
 

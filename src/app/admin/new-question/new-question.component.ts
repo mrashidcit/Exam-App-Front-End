@@ -1,16 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import {Question} from "../interfaces/question.interface";
-import {QuestionService} from "../question.service";
-import {GradeService} from "../services/grade.service";
-import {Grade} from "../interfaces/grade.interface";
-import {Subject} from "../interfaces/subject.interface";
-import {Response} from "@angular/http";
-import {SubjectService} from "../services/subject.service";
-import {Input} from "@angular/core/src/metadata/directives";
-import {element, ElementFinder} from "protractor";
-import {Element} from "@angular/compiler/src/ml_parser/ast";
-import {DomAdapter} from "@angular/platform-browser/src/dom/dom_adapter";
+import { Component, OnInit, Input } from '@angular/core';
+
+
 import {ViewChild} from "@angular/core/src/metadata/di";
+import {Question} from "../../interfaces/question.interface";
+import {QuestionService} from "../../question.service";
+import {Subject} from "../../interfaces/subject.interface";
+import {Grade} from "../../interfaces/grade.interface";
 // ViewChild add
 
 
@@ -34,9 +29,7 @@ export class NewQuestionComponent implements OnInit {
   showMsg = false;
 
   constructor(
-      private questionService: QuestionService,
-      private gradeService: GradeService,
-      private subjectService: SubjectService) {
+      private questionService: QuestionService) {
 
 
   }
@@ -93,10 +86,6 @@ export class NewQuestionComponent implements OnInit {
 
 
   }
-
-
-
-
 
   showMessage(){
     this.showMsg = true;

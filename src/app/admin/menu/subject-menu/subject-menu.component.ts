@@ -1,10 +1,9 @@
-import {Component, OnInit, Input, OnChanges, EventEmitter} from '@angular/core';
+import {Component, Output, OnInit, Input, OnChanges, EventEmitter} from '@angular/core';
 import {Response} from "@angular/http";
+import {Grade} from "../../../interfaces/grade.interface";
+import {Subject} from "../../../interfaces/subject.interface";
+import {SubjectService} from "../../../services/subject.service";
 
-import {Subject} from "../../interfaces/subject.interface";
-import {SubjectService} from "../../services/subject.service";
-import {Grade} from "../../interfaces/grade.interface";
-import {Output} from "@angular/core/src/metadata/directives";
 
 
 
