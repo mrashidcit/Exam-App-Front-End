@@ -16,8 +16,8 @@ import { ShowResultComponent } from './quiz/show-result/show-result.component';
 import {AdminModule} from "./admin/admin.module";
 import {QuestionsModule} from "./questions/questions.module";
 import {QuizModule} from "./quiz/quiz.module";
-import { LoginComponent } from './login.component';
-import {LoginRoutingModule} from "./login-routing.module";
+import { LoginComponent } from './login/login.component';
+import {LoginRoutingModule} from "./login/login-routing.module";
 
 
 @NgModule({
@@ -48,7 +48,8 @@ import {LoginRoutingModule} from "./login-routing.module";
   providers: [
       GradeService,
       SubjectService,
-      QuestionService
+      QuestionService,
+
   ],
   bootstrap: [AppComponent]
 })
