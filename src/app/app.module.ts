@@ -18,6 +18,8 @@ import {QuestionsModule} from "./questions/questions.module";
 import {QuizModule} from "./quiz/quiz.module";
 import { LoginComponent } from './login/login.component';
 import {LoginRoutingModule} from "./login/login-routing.module";
+import {DialogService} from "./services/dialog.service";
+import {QuizRoutingModule} from "./quiz/quiz-routing.module";
 
 
 @NgModule({
@@ -35,6 +37,7 @@ import {LoginRoutingModule} from "./login/login-routing.module";
     LoginRoutingModule,
     QuizModule,
     QuestionsModule,
+    QuizRoutingModule,
     AdminModule,
     AppRoutingModule,
 
@@ -49,6 +52,7 @@ import {LoginRoutingModule} from "./login/login-routing.module";
       GradeService,
       SubjectService,
       QuestionService,
+      DialogService,
 
   ],
   bootstrap: [AppComponent]

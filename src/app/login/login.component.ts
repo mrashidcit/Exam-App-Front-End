@@ -1,27 +1,21 @@
+
 import { Component, OnInit } from '@angular/core';
 
 import {Router, NavigationExtras} from "@angular/router";
 import {AuthService} from "../services/auth.service";
+import {User} from "../interfaces/user.interface";
+
 
 @Component({
   selector: 'app-login',
-  template: `
-    <h2>LOGIN</h2>
-    <p>{{message}}</p>
-    <p>
-        <button (click)="login()" 
-            *ngIf="!authService.isLoggedIn">Login</button>
-            
-        <button (click)="logout()" 
-            *ngIf="authService.isLoggedIn">Logout</button>
-            
-            
-    </p>
-  `,
+  templateUrl: './login.component.html',
   styles: []
 })
 export class LoginComponent implements OnInit {
   message: string;
+  user: User;
+  showErrMsg: boolean = false;
+  isLoggedIn: boolean = false;
 
   constructor(
       public authService: AuthService,
@@ -33,13 +27,25 @@ export class LoginComponent implements OnInit {
         (this.authService.isLoggedIn ? 'in' : 'out');
   }
 
+  resetMessage(){
+    this.message = '';
+  }
+
+  resetShowErrMsg(){
+    this.showErrMsg = false;
+  }
+
   login() {
     this.message = 'Trying to log in ...';
+    this.resetShowErrMsg();
 
-    this.authService.login()
-        .subscribe(() => {
+
+    this.authService.login(this.user)
+        .subscribe((status) => {
           this.setMessage();
-          if(this.authService.isLoggedIn){
+          this.isLoggedIn = status;
+          //console.log('in login() ' + this.isLoggedIn);
+          if(this.isLoggedIn){
             // Get the redirect URL from our auth service
             // If no redirect has been set, use the default
             let redirect = this.authService.redirectUrl ?
@@ -53,8 +59,19 @@ export class LoginComponent implements OnInit {
             };
 
             // Redirect the user
-            this.router.navigate([redirect], navigationExtras);
+            this.router.navigate([redirect]);
           }
+          /*else {
+            this.showErrMsg = true;
+            this.message = '';
+          } */
+
+        },
+        error => {
+          this.showErrMsg = error;
+          this.resetMessage();
+
+
         });
   } // end login()
 
@@ -64,6 +81,10 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user= <User>{
+      'email':'mrashidcit@gmail.com',
+      'password': 'secret'
+    };
   }
 
 }

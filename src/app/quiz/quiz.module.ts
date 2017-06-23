@@ -7,6 +7,7 @@ import {QuizComponent} from "./quiz/quiz.component";
 import {ShowResultComponent} from "./show-result/show-result.component";
 import {SharedModule} from "../shared/shared.module";
 import {QuizParentComponent} from "./quiz-parent/quiz-parent.component";
+import {QuizRoutingModule} from "./quiz-routing.module";
 
 @NgModule({
     imports: [
@@ -14,7 +15,7 @@ import {QuizParentComponent} from "./quiz-parent/quiz-parent.component";
         FormsModule,
         HttpModule,
         SharedModule,
-
+        QuizRoutingModule,
 
     ],
     declarations: [

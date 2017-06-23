@@ -1,14 +1,14 @@
+
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
 import {Headers, Http, Response} from "@angular/http";
-import {User} from "../interfaces/user.interface";
+import { User } from '../interfaces/user.interface';
 
 
 @Injectable()
 export class AuthService {
     isLoggedIn = false;
     token: string;
-    user = <User>{} ;
 
 
     private authUrl = 'http://localhost:8000/api/authenticate'; // URL to web api
@@ -20,33 +20,59 @@ export class AuthService {
     redirectUrl: string;
 
 
-    login(): Observable<boolean> {
+    login(user: User): Observable<boolean> {
 
 
-        this.user.email = "mrashidcit@gmail.com";
-        this.user.password = "secret";
 
-        return this.http.post(this.authUrl, JSON.stringify(this.user),
+        return this.http.post(this.authUrl, JSON.stringify(user),
                     {headers: this.headers})
             .map((res: Response) => {
-                if(res.json().access){
-                    this.isLoggedIn = true;
-                    this.token = res.json().token;
+                let body = res.json();
 
+                if(body.allowAccess){
+                    this.isLoggedIn = true;
+                    this.token = body.token;
 
                     return true;
                 }
 
-                return false;
+
+            })
+            .catch((err: Response | any, caught: Observable<boolean>) => {
+                let body, allowAccess;
+                if(err instanceof  Response){
+                    body = err.json();
+                    allowAccess = body.allowAccess;
+                }
+
+                return Observable.throw(allowAccess);
+
             });
 
-        /*
-        return Observable.of(true)
+    }
 
-            .delay(1000)
-            .do(val => this.isLoggedIn = true);
+    private extractData(res: Response){
+        let body = res.json();
 
-        */
+
+        if(body.allowAccess){
+            this.isLoggedIn = true;
+            this.token = body.token;
+
+
+
+            return true;
+        }
+
+    }
+
+    private handleError(error: Response){
+
+        if(error instanceof  Response){
+            console.log('allowAccess = false');
+        }
+
+        return false;
     }
 
     logout(): void {

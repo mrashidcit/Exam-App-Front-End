@@ -6,6 +6,8 @@ import {Grade} from "../../interfaces/grade.interface";
 import {Subject} from "../../interfaces/subject.interface";
 import {Response} from "@angular/http";
 import {Question} from "../../interfaces/question.interface";
+import {ActivatedRoute, Router} from "@angular/router";
+import {DialogService} from "../../services/dialog.service";
 
 @Component({
   selector: 'app-quiz-parent',
@@ -23,10 +25,19 @@ export class QuizParentComponent implements OnInit {
   showQuizForm: boolean = false;
 
   constructor(
+      private route: ActivatedRoute,
+      private router: Router,
+      public dialogService: DialogService,
       private questionService: QuestionService
   ) { }
 
   ngOnInit() {
+  }
+
+  canDeactivate(): Promise<boolean> | boolean {
+
+    console.log('canDeactivate() method in quiz-parent');
+    return this.dialogService.confirm('Discard changes?');
   }
 
   currentGrade: Grade;

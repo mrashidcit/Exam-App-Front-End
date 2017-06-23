@@ -2,6 +2,8 @@ import {Component, OnInit, OnChanges, ViewChild, EventEmitter} from '@angular/co
 import {Input, Output} from "@angular/core/src/metadata/directives";
 import {Question} from "../../interfaces/question.interface";
 import {NgForm} from "@angular/forms";
+import {ActivatedRoute, Router} from "@angular/router";
+import {DialogService} from "../../services/dialog.service";
 
 @Component({
   selector: 'app-quiz',
@@ -40,6 +42,8 @@ export class QuizComponent implements OnInit, OnChanges {
 
   ngOnInit() {
   }
+
+
 
   allowSaveAndNext(){
     this.allowSaveNext = true;
