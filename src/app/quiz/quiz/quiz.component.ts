@@ -4,6 +4,7 @@ import {Question} from "../../interfaces/question.interface";
 import {NgForm} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DialogService} from "../../services/dialog.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-quiz',
@@ -41,11 +42,48 @@ export class QuizComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
+      this.startTimer();
   }
 
+    // Timer & Counter work
+
+    questionTime: number = 60;
+    counter: number = this.questionTime;
+    timer;
+    subscription; // contains subscription of the Observable.Timer()
 
 
-  allowSaveAndNext(){
+    startTimer(){
+
+        this.timer = Observable.timer(0, 1000);
+        this.subscription =  this.timer.subscribe(t => {
+            this.counter--;
+
+            if(this.counter === 0){
+                this.resetCounter();
+                this.allowSaveAndNext();
+                this.next();
+                console.log('Move Next');
+                //this.question.user_answer = 'f';
+            }
+
+
+        });
+
+    } // end startTimer()
+
+    stopTimer(){
+        this.subscription.unsubscribe();
+    }
+
+    resetCounter(){
+        this.counter = this.questionTime;
+    }
+
+
+
+
+    allowSaveAndNext(){
     this.allowSaveNext = true;
 
   }
@@ -57,11 +95,19 @@ export class QuizComponent implements OnInit, OnChanges {
   }
 
   checkandMarkQuestion(){
+
+      if(!this.isQuestionNoValid()){
+          this.stopTimer();
+          return;
+      }
+      //let user_answer = this.question.user_answer ? this.question.user_answer : 'e';
+      let correct_option = !this.question.correct_option ? this.question.correct_option : 'nothing';
       if (this.question.correct_option === this.question.user_answer){
           this.question.correct = true;
       } else {
           this.question.correct = false;
       }
+
 
   }
 
@@ -74,6 +120,8 @@ export class QuizComponent implements OnInit, OnChanges {
     this.moveNext.emit(this.allowSaveNext);
 
     this.allowSaveNext = false;
+
+    this.resetCounter();
 
   }
 

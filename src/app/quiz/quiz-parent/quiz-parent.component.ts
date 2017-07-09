@@ -9,6 +9,7 @@ import {Question} from "../../interfaces/question.interface";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DialogService} from "../../services/dialog.service";
 
+
 @Component({
   selector: 'app-quiz-parent',
   templateUrl: './quiz-parent.component.html',
@@ -29,10 +30,18 @@ export class QuizParentComponent implements OnInit {
       private router: Router,
       public dialogService: DialogService,
       private questionService: QuestionService
-  ) { }
+  ) {
+
+
+
+
+  }
+
 
   ngOnInit() {
   }
+
+
 
   canDeactivate(): Promise<boolean> | boolean {
 
@@ -112,6 +121,12 @@ export class QuizParentComponent implements OnInit {
 
   showResult() {
       this.result = true;
+  }
+
+  startQuizAgain(){
+
+    this.showQuizForm = false;
+
   }
 
 

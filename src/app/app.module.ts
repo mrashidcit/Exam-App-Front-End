@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { MaterialModule, MdNativeDateModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { GradeListComponent } from './grades/grade-list/grade-list.component';
@@ -20,7 +21,7 @@ import { LoginComponent } from './login/login.component';
 import {LoginRoutingModule} from "./login/login-routing.module";
 import {DialogService} from "./services/dialog.service";
 import {QuizRoutingModule} from "./quiz/quiz-routing.module";
-
+import 'HammerJS';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,9 @@ import {QuizRoutingModule} from "./quiz/quiz-routing.module";
     BrowserModule,
     FormsModule,
     HttpModule,
+    MaterialModule,
+    MdNativeDateModule,
+    ReactiveFormsModule,
     LoginRoutingModule,
     QuizModule,
     QuestionsModule,
