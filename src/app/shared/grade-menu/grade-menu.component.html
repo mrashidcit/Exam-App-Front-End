@@ -1,11 +1,12 @@
 
 
+
 <span *ngIf="grades">Grade:
-<select  (change)="send()" [(ngModel)]="grade_id">
-  <option *ngFor="let grade of grades" value="{{grade.id}}">
+<md-select  (change)="send()" [(ngModel)]="grade_id">
+  <md-option *ngFor="let grade of grades" value="{{grade.id}}">
     {{grade.name}}
-  </option>
-</select>
+  </md-option>
+</md-select>
 </span>
 
 <span *ngIf="!grades">

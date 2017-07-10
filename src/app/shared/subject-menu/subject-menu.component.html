@@ -1,16 +1,14 @@
 
 <span *ngIf="subjects">
     Subject:
-    <select
+    <md-select
             (change)="setCurrentSubject(); sendSubjectToNewQuestionComponent();"
             [(ngModel)]="subject_id">
-      <option *ngFor="let subject of showSubjects"
+      <md-option *ngFor="let subject of showSubjects"
         value="{{subject.id}}">
           {{subject.name}}
-      </option>
-    </select>
-
-
+      </md-option>
+    </md-select>
 </span>
 
 <span *ngIf="!subjects">

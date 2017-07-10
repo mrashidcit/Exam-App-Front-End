@@ -21,6 +21,7 @@ export class Question {
         this.c = '';
         this.d = '';
         this.correct_option = '';
+        this.user_answer = '';
         this.correct = false;
 
 

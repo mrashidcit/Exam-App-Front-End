@@ -1,8 +1,10 @@
-import {Component, Input, Output, OnInit, OnChanges, EventEmitter} from '@angular/core';
+import {
+  Component, Input, Output, OnInit,
+  OnChanges, EventEmitter, ViewChild} from '@angular/core';
 
 import {Question} from "../../interfaces/question.interface";
 import {QuestionService} from "../../question.service";
-import {ViewChild} from "@angular/core/src/metadata/di";
+
 
 
 
