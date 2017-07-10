@@ -11,15 +11,16 @@
 
 
 
-  <div class="row quiz-form">
+  <md-card class="row quiz-form">
     <form class="col-sm-6 " #quizForm="ngForm" action="">
 
       <div>Q: {{question.question}}</div>
 
-      <div class="form-group" >
+      <md-radio-group class="example-radio-group" >
 
-        <input  (click)="allowSaveAndNext(); setAnswer('a')"
-               [checked]="false" checked="false" #opt1  name="choice" value="a"  type="radio" > {{question?.a}} <br>
+        <md-radio-button class="radio-button"  (click)="allowSaveAndNext(); setAnswer('a')"
+               [checked]="false" #opt1  name="choice" [value]="question?.a">
+        <md-radio-button>
 
         <input (click)="allowSaveAndNext(); setAnswer('b')"
                [checked]="false" #opt2  name="choice" value="b"  type="radio"  > {{question?.b}} <br>
@@ -28,25 +29,29 @@
         <input (click)="allowSaveAndNext(); setAnswer('d')"
                [checked]="false" #opt4  name="choice" value="d"  type="radio" > {{question?.d}} <br>
 
-      </div>
+      </md-radio-group>
 
-      <button class="btn btn-success btn-default"
+      <md-card-actions>
+        <button md-raised-button class="btn btn-success btn-default"
           [disabled]="!allowSaveNext"
             (click)="next();
             opt1.checked = false;
             opt2.checked = false;
             opt3.checked = false;
             opt4.checked = false;
-
-">
+        ">
         Save & Next
       </button>
+
+      </md-card-actions>
+
+      
 
 
 
 
     </form>
-  </div>
+  </md-card>
 
 </div>
 

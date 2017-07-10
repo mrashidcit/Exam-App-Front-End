@@ -21,7 +21,9 @@ import { LoginComponent } from './login/login.component';
 import {LoginRoutingModule} from "./login/login-routing.module";
 import {DialogService} from "./services/dialog.service";
 import {QuizRoutingModule} from "./quiz/quiz-routing.module";
+import { MaterialComponentModule } from "app/shared/material-component/material-component.module";
 import 'HammerJS';
+
 
 @NgModule({
   declarations: [
@@ -35,9 +37,7 @@ import 'HammerJS';
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule,
-    MdNativeDateModule,
-    ReactiveFormsModule,
+    MaterialComponentModule,
     LoginRoutingModule,
     QuizModule,
     QuestionsModule,
