@@ -1,45 +1,89 @@
 <div *ngIf="question">
-  <div class="row">
-    <div class="col-sm-3">Grade: 9th</div>
-    <div class="col-sm-3">Subject: Computer</div>
-    <div class="col-sm-3">Time: {{counter}}</div>
-  </div>
+  <md-grid-list cols="2" rowHeight="42px">
+    <md-grid-tile class="quiz-header">
+      <div class="">Grade: 9th</div>
+      <div class="">Subject: Computer</div>
+    
+    </md-grid-tile>
+    <md-grid-tile>
+      <div class="time label label-default">
+        Time: {{counter}}
+      </div>
+    </md-grid-tile>
 
-    <div class="row">
-        <p>Question: {{questionNo}} of {{ totalQuestions}}</p>
-    </div>
+    <md-grid-tile class="row">
+      <span class="question-info">
+        Question: {{questionNo}} of {{ totalQuestions}}
+      </span>
+    </md-grid-tile>
 
+    
+    
+  </md-grid-list>
+
+  
 
 
   <md-card class="row quiz-form">
     <form class="col-sm-6 " #quizForm="ngForm" action="">
 
-      <div>Q: {{question.question}}</div>
+      <md-card-title>
+        Q: {{question.question}}
+      </md-card-title>
 
-      <md-radio-group class="example-radio-group" >
+      <md-card-content>
+        
+        <md-radio-group class="radio-group" >
 
-        <md-radio-button class="radio-button"  (click)="allowSaveAndNext(); setAnswer('a')"
-               [checked]="false" #opt1  name="choice" [value]="question?.a">
-        <md-radio-button>
+          <md-radio-button class="radio-button"  (click)="allowSaveAndNext(); setAnswer('a')"
+                [checked]="false" #opt1  name="choice" 
+                [value]="question?.a">
+                {{question?.a}}
 
-        <input (click)="allowSaveAndNext(); setAnswer('b')"
-               [checked]="false" #opt2  name="choice" value="b"  type="radio"  > {{question?.b}} <br>
-        <input (click)="allowSaveAndNext(); setAnswer('c')"
-               [checked]="false" #opt3  name="choice" value="c"  type="radio" > {{question?.c}} <br>
-        <input (click)="allowSaveAndNext(); setAnswer('d')"
-               [checked]="false" #opt4  name="choice" value="d"  type="radio" > {{question?.d}} <br>
+          </md-radio-button> 
+          <br>
+          <md-radio-button class="radio-button"  (click)="allowSaveAndNext(); setAnswer('b')"
+                [checked]="false" #opt2  name="choice" 
+                [value]="question?.b">
+                {{question?.b}}
 
-      </md-radio-group>
+          </md-radio-button>
+          <br>
+
+          <md-radio-button class="radio-button"  (click)="allowSaveAndNext(); setAnswer('c')"
+                [checked]="false" #opt3  name="choice" 
+                [value]="question?.c">
+                {{question?.c}}
+
+          </md-radio-button>
+          <br>
+
+          <md-radio-button class="radio-button"  (click)="allowSaveAndNext(); setAnswer('d')"
+                [checked]="false" #opt4  name="choice" 
+                [value]="question?.d">
+                {{question?.d}}
+
+          </md-radio-button>
+          <br>
+            
+
+        </md-radio-group>
+
+      </md-card-content>
+
+      
 
       <md-card-actions>
-        <button md-raised-button class="btn btn-success btn-default"
+        <button md-raised-button
+          class="save-button"
           [disabled]="!allowSaveNext"
             (click)="next();
             opt1.checked = false;
             opt2.checked = false;
             opt3.checked = false;
-            opt4.checked = false;
-        ">
+            opt4.checked = false;"
+            
+            >
         Save & Next
       </button>
 

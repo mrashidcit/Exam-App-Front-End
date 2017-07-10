@@ -1,19 +1,22 @@
-import { Component, OnInit, Input } from '@angular/core';
-import {Question} from "../../interfaces/question.interface";
 
-import {forEach} from "@angular/router/src/utils/collection";
-import {of} from "rxjs/observable/of";
+
+import { Component, Input, OnInit,  OnChanges, SimpleChanges } from '@angular/core';
+//import { forEach } from '@angular/router/src/utils/collection';
+import { Question } from '../../interfaces/question.interface';
+import { of } from 'rxjs/observable/of';
+
 
 @Component({
   selector: 'app-show-result',
   templateUrl: './show-result.component.html',
   styleUrls: ['./show-result.component.css']
 })
-export class ShowResultComponent implements OnInit {
+export class ShowResultComponent 
+        implements OnInit, OnChanges {
 
   @Input() questions: Question[];
 
-  no: number = 1;
+  no: number = 0;
 
   question: Question;
 
@@ -21,6 +24,7 @@ export class ShowResultComponent implements OnInit {
 
   total_marks : number = 0;
   obtain_marks : number = 0;
+
 
   ngOnInit() {
     this.total_marks = this.questions.length;
@@ -34,6 +38,11 @@ export class ShowResultComponent implements OnInit {
 
     console.log("Obtain_Marks = " + this.obtain_marks);
     console.log(this.questions)
+  } // end ngOnInit()
+
+  ngOnChanges(changes: SimpleChanges){
+      
+      
   }
 
 

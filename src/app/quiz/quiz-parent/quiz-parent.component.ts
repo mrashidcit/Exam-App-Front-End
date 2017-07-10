@@ -70,7 +70,7 @@ export class QuizParentComponent implements OnInit {
               this.questions = questions;
               this.currentQuestion = this.questions[this.questionNo++];
               this.toggleShowQuizForm();
-
+              
             },
             (error: Response) => console.log(error)
 
@@ -125,7 +125,9 @@ export class QuizParentComponent implements OnInit {
 
   startQuizAgain(){
 
+    this.result = false;
     this.showQuizForm = false;
+    this.result = false;
 
   }
 

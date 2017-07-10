@@ -1,0 +1,40 @@
+.quiz-header {
+
+    font: 18px arial, sans-serif;
+
+}
+
+.time {
+    float: right;
+    vertical-align: top;
+    font: 22px arial, sans-serif;
+}
+
+.question-info {
+    float:left;
+    font: 18px arial, sans-serif;
+}
+
+.radio-group {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.radio-button {
+    margin: 5px;
+}
+
+.selected-value {
+    margin: 15px 0;
+}
+
+.save-button {
+
+
+
+}
+
+md-card {
+    padding: 5px;
+}
+

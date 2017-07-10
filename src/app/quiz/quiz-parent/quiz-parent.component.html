@@ -1,8 +1,8 @@
-<div>
-  <div *ngIf="!showQuizForm" class="row">
-    <h3>Conduct Quiz</h3>
 
-    <div class="grade-subject-menu">
+  <md-card *ngIf="!showQuizForm" class="row">
+    <md-card-title>Conduct Quiz</md-card-title>
+
+    <md-card-content class="grade-subject-menu">
 
       <app-grade-menu class="col-sm-4"
           (sendgrade)="getGradefromGradeMenu($event)">
@@ -15,13 +15,14 @@
 
       </app-subject-menu>
 
-      <button (click)="startQuiz()">
-          Start
-      </button>
-
-
-    </div>
-  </div>
+    </md-card-content>
+    
+    <md-card-actions class="md-card-footer">
+                <button md-raised-button (click)="startQuiz()">
+                Start
+            </button>
+    </md-card-actions>
+</md-card>
 
   <div *ngIf="showQuizForm">
 
@@ -49,4 +50,3 @@
 
     </div>
 
-</div>

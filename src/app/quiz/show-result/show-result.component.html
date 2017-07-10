@@ -1,9 +1,9 @@
 
 <div>Obtain Marks: {{obtain_marks}} </div>
 <div>Total Marks: {{total_marks}}</div>
-<div class="panel panel-default" *ngFor="let question of questions">
+<div class="panel panel-default" *ngFor="let question of questions; let i = index ">
   <div class="panel-heading">
-    {{question.id }}. {{question.question}}
+    {{i + 1}}. {{question.question}}
     <span
         [ngClass]="question.correct ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'">
 
