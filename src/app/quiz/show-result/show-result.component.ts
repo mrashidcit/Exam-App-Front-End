@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {Question} from "../../interfaces/question.interface";
-import {Input} from "@angular/core/src/metadata/directives";
+
 import {forEach} from "@angular/router/src/utils/collection";
 import {of} from "rxjs/observable/of";
 

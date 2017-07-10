@@ -1,5 +1,8 @@
-import {Component, OnInit, OnChanges, ViewChild, EventEmitter} from '@angular/core';
-import {Input, Output} from "@angular/core/src/metadata/directives";
+import {
+    Component, OnInit, OnChanges, 
+    ViewChild, EventEmitter, Input, 
+    Output} from '@angular/core';
+
 import {Question} from "../../interfaces/question.interface";
 import {NgForm} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";

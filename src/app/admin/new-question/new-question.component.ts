@@ -1,7 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
 
-import {ViewChild} from "@angular/core/src/metadata/di";
 import {Question} from "../../interfaces/question.interface";
 import {QuestionService} from "../../question.service";
 import {Subject} from "../../interfaces/subject.interface";
