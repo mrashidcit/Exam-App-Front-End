@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import {HomeComponent} from './home/home.component';
 import { SelectBoardAndYearComponent } from "./select-board-and-year/select-board-and-year.component";
+import { SelectGradeAndSubjectComponent } from "./select-grade-and-subject/select-grade-and-subject.component";
+
 
 const homeRoutes: Routes = [
     {
@@ -13,7 +15,12 @@ const homeRoutes: Routes = [
             {
                 path: '',
                 component: SelectBoardAndYearComponent,
+            },
+            {
+                path: 'select-grade-and-subject',
+                component: SelectGradeAndSubjectComponent,
             }
+            
             
         ]
 

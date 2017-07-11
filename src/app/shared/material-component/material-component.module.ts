@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MaterialModule, MdNativeDateModule } from '@angular/material';
+import { MaterialModule, MdIconModule, MdNativeDateModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -15,12 +15,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpModule,
     FormsModule,
     MaterialModule,
+    MdIconModule,
     MdNativeDateModule,
     ReactiveFormsModule,
 
   ],
   exports: [
     MaterialModule,
+    MdIconModule,
     MdNativeDateModule,
     ReactiveFormsModule,
   ],
