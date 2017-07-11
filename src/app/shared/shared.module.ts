@@ -5,6 +5,8 @@ import {HttpModule} from "@angular/http";
 import { GradeMenuComponent } from './grade-menu/grade-menu.component';
 import { MaterialComponentModule } from './material-component/material-component.module';
 import { SubjectMenuComponent } from './subject-menu/subject-menu.component';
+import { BoardMenuComponent } from './board-menu/board-menu.component';
+import { YearMenuComponent } from './year-menu/year-menu.component';
 
 
 @NgModule({
@@ -18,11 +20,15 @@ import { SubjectMenuComponent } from './subject-menu/subject-menu.component';
     declarations: [
         GradeMenuComponent,
         SubjectMenuComponent,
+        BoardMenuComponent,
+        YearMenuComponent,
 
     ],
     exports: [
         GradeMenuComponent,
         SubjectMenuComponent,
+        BoardMenuComponent,
+        YearMenuComponent,
     ]
 
 })

@@ -1,0 +1,7 @@
+
+<md-select class="md-select" *ngIf="boards"  placeholder="Board" required>
+  <md-option *ngFor="let board of boards" value="board.id" >
+    {{board.name}}
+  </md-option>
+  
+</md-select>

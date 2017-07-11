@@ -1,0 +1,7 @@
+
+<md-select class="md-select" *ngIf="years"  placeholder="Year" required>
+  <md-option *ngFor="let year of years" value="year.id" >
+    {{year.name}}
+  </md-option>
+  
+</md-select>
