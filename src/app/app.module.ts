@@ -4,15 +4,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule, MdNativeDateModule } from '@angular/material';
 
-import { AppComponent } from './app.component';
-import { GradeListComponent } from './grades/grade-list/grade-list.component';
-import {AppRoutingModule} from "./app-routing.module";
 
-
-import { GradeComponent } from './grades/grade/grade.component';
 
 import { AdminModule } from './admin/admin.module';
-
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { GradeListComponent } from './grades/grade-list/grade-list.component';
+import { GradeComponent } from './grades/grade/grade.component';
+import { HomeModule } from './home/home.module';
 import { LoginRoutingModule } from './login/login-routing.module';
 import { LoginComponent } from './login/login.component';
 import { QuestionService } from './question.service';
@@ -28,7 +27,9 @@ import { SubjectService } from './services/subject.service';
 import { MaterialComponentModule } from './shared/material-component/material-component.module';
 import { SharedModule } from './shared/shared.module';
 import 'HammerJS';
-import { HomeComponent } from './home/home.component';
+
+
+
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import { HomeComponent } from './home/home.component';
     GradeListComponent,
     GradeComponent,
     LoginComponent,
-    HomeComponent,
+
 
   ],
   imports: [
@@ -45,6 +46,7 @@ import { HomeComponent } from './home/home.component';
     FormsModule,
     HttpModule,
     MaterialComponentModule,
+    HomeModule,
     SharedModule,
     LoginRoutingModule,
     QuizModule,
