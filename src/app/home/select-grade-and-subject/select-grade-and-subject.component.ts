@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Grade } from "../../interfaces/grade.interface";
-import { Subject } from "../../interfaces/subject.interface";
+import { Grade } from '../../interfaces/grade.interface';
+import { Subject } from '../../interfaces/subject.interface';
+import { GradeAndSubjectService } from '../../services/grade-and-subject.service';
+
 
 
 @Component({
@@ -10,23 +12,31 @@ import { Subject } from "../../interfaces/subject.interface";
 })
 export class SelectGradeAndSubjectComponent implements OnInit {
 
-@Output() sendGrade = new EventEmitter<Grade>();
-  
-  constructor() { }
+  constructor(
+    private gradeAndSubject: GradeAndSubjectService
+  ) { }
 
   ngOnInit() {
   }
 
-  currentGrade: Grade;
+  
   getGradeFromGradeMenu(grade: Grade){
-    this.currentGrade = grade;
+    
+    this.gradeAndSubject.setGrade(grade);
   }
 
   currentSubject: Subject;
 
   // get Subject from subject-menu component
   getSubjectFromSubjectMenu(subject: Subject){
-    this.currentSubject = subject;
+    
+    this.gradeAndSubject.setSubject(subject);
+
+  }
+
+  showGrade(){
+    console.log(this.gradeAndSubject.getGrade());
+    console.log(this.gradeAndSubject.getSubject());
   }
 
 

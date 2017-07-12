@@ -2,8 +2,9 @@
 <md-select (change)="setCurrentSubject(); sendSubjectToNewQuestionComponent();"
         *ngIf="subjects" [(ngModel)]="subject_id" 
         placeholder="Subject" >
-    <md-option *ngFor="let subject of showSubjects"
-    value="{{subject.id}}">
+    <md-option 
+        *ngFor="let subject of showSubjects"
+        [value]="subject.id">
         {{subject.name}}
     </md-option>
 </md-select>

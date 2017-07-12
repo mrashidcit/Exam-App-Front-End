@@ -54,6 +54,7 @@ export class QuizParentComponent implements OnInit {
   // get Grade from grade-menu component
   getGradefromGradeMenu(grade: Grade){
     this.currentGrade = grade;
+    
   }
 
   currentSubject: Subject;

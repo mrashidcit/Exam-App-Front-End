@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Grade } from '../interfaces/grade.interface';
 import { Subject } from '../interfaces/subject.interface';
+import { GradeAndSubjectService } from '../services/grade-and-subject.service';
 
 @Component({
   selector: 'app-home',
@@ -10,9 +11,13 @@ import { Subject } from '../interfaces/subject.interface';
 export class HomeComponent implements OnInit{
 
 
-  constructor() { }
+  constructor(
+    private gradeAndSubject: GradeAndSubjectService
+    ) { }
 
   ngOnInit() {
+    this.currentGrade = this.gradeAndSubject.getGrade();
+
   }
 
   
@@ -20,7 +25,9 @@ export class HomeComponent implements OnInit{
 
   // get Grade from grade-menu component
   getGradefromGradeMenu(grade: Grade){
+    console.log("In getGradeFromGradeMenu()");
     this.currentGrade = grade;
+    console.log("in getGradeFromGradeMenu()");
     
   }
 
@@ -31,9 +38,6 @@ export class HomeComponent implements OnInit{
     this.currentSubject = subject;
   }
 
-  // Send Grade Object to the Ouput of the component
-  sendGrade(){
-    
-  }
+  
 
 }

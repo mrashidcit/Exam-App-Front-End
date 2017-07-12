@@ -3,7 +3,9 @@
     <app-grade-menu 
       (sendGrade)="getGradeFromGradeMenu($event)">
 
-    </app-grade-menu>
+    </app-grade-menu> <br>
+
+    <br>
     <app-subject-menu 
       (sendSubject)="getSubjectFromSubjectMenu($event)">
 
@@ -12,7 +14,10 @@
 
   <md-grid-tile class="md-grid-tile">
     <button md-raised-button >
-      <a routerLink="../quiz">Next</a>
+      <a routerLink="../quiz" 
+        (click)="showGrade()">
+        Next
+      </a>
       </button>
   </md-grid-tile>
   

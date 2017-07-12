@@ -5,7 +5,7 @@
     <md-card-content class="grade-subject-menu">
 
       <app-grade-menu class="col-sm-4"
-          (sendgrade)="getGradefromGradeMenu($event)">
+          (sendGrade)="getGradefromGradeMenu($event)">
 
       </app-grade-menu>
 
@@ -20,7 +20,9 @@
     <md-card-actions class="md-card-footer">
                 <button md-raised-button (click)="startQuiz()">
                 Start
-            </button>
+            </button><br>
+
+            Grade: {{currentGrade | json}}
     </md-card-actions>
 </md-card>
 
