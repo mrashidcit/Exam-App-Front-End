@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import {HomeComponent} from './home.component';
+
 import { SelectBoardAndYearComponent } from "./select-board-and-year/select-board-and-year.component";
 import { SelectGradeAndSubjectComponent } from "./select-grade-and-subject/select-grade-and-subject.component";
 import { QuizComponent } from "./quiz/quiz.component";
+import { HomeComponent } from "./home.component";
 
 
 const homeRoutes: Routes = [

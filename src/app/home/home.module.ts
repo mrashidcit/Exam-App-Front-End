@@ -9,11 +9,11 @@ import { QuizModule } from '../quiz/quiz.module';
 import { MaterialComponentModule } from '../shared/material-component/material-component.module';
 import { SharedModule } from '../shared/shared.module';
 import { HomeRoutingModule } from './home-routing.module';
-import { HomeComponent } from './home.component';
+
 import { QuizComponent } from './quiz/quiz.component';
 import { SelectBoardAndYearComponent } from './select-board-and-year/select-board-and-year.component';
 import { SelectGradeAndSubjectComponent } from './select-grade-and-subject/select-grade-and-subject.component';
-
+import { HomeComponent } from "app/home/home.component";
 
 
 @NgModule({

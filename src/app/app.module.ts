@@ -4,8 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule, MdNativeDateModule } from '@angular/material';
 
-
-
 import { AdminModule } from './admin/admin.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -39,15 +37,14 @@ import 'HammerJS';
     GradeComponent,
     LoginComponent,
 
-
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     MaterialComponentModule,
-    HomeModule,
     SharedModule,
+    HomeModule,
     LoginRoutingModule,
     QuizModule,
     QuestionsModule,
