@@ -1,7 +1,19 @@
 
-<md-select class="md-select" *ngIf="boards"  placeholder="Board" required>
-  <md-option *ngFor="let board of boards" value="board.id" >
+<md-select
+  class="md-select"
+  *ngIf="boards"
+  [(ngModel)]="board_id"
+  (change)="send()"
+  placeholder="Board"
+  required>
+
+  <md-option
+    *ngFor="let board of boards"
+    [value]="board.id"
+    >
     {{board.name}}
   </md-option>
-  
+
 </md-select>
+
+<span *ngIf="!boards">Loading...</span>

@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 
 import { PaperModule } from '../paper/paper.module';
 import { QuizModule } from '../quiz/quiz.module';
+import { BoardService } from '../services/board.service';
 import { GradeAndSubjectService } from '../services/grade-and-subject.service';
 import { MaterialComponentModule } from '../shared/material-component/material-component.module';
 import { SharedModule } from '../shared/shared.module';
@@ -21,7 +22,7 @@ import { HomeComponent } from "app/home/home.component";
 
 @NgModule({
   imports: [
-    
+
     CommonModule,
     FormsModule,
     //FormsModule,
@@ -32,10 +33,10 @@ import { HomeComponent } from "app/home/home.component";
     QuizModule,
     PaperModule,
 
-  ],  
+  ],
   declarations: [
-    SelectBoardAndYearComponent, 
-    
+    SelectBoardAndYearComponent,
+
     HomeComponent,
     SelectGradeAndSubjectComponent,
     QuizComponent,
@@ -44,6 +45,8 @@ import { HomeComponent } from "app/home/home.component";
 
   providers: [
     GradeAndSubjectService,
+    BoardService,
+
   ]
 })
 export class HomeModule { }

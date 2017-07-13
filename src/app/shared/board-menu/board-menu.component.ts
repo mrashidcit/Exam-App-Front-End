@@ -1,4 +1,7 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Board } from '../../interfaces/board.interface';
+import { BoardService } from '../../services/board.service';
+
+import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-board-menu',
@@ -8,22 +11,49 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class BoardMenuComponent implements OnInit {
 
-  boards: [{id: number, name: String}];
+  @Output() sendBoard = new EventEmitter<Board>();
 
-  constructor() { }
+  board_id: number; // contains board_id of selected board
+  currentBoard: Board;
+
+
+  boards: Board[];
+
+  constructor(
+    private boardService: BoardService
+  ) { }
 
   ngOnInit() {
-    this.boards = [
-      {id: 1, name: "Lahore"},
-      {id: 2, name: "Faisalabad"},
-      {id: 3, name: "Gujrawala"},
-      
-    ];
-    //this.boards.push({id: 1, name: "Lahore"});
-    /*this.boards[1] = "Faisalabad";
-    this.boards[2] = "Gujrawala";
-    */
+
+    this.getBoards();
 
   }
+
+  getBoards(){
+
+    this.boardService.getBoards()
+      .subscribe(
+        (boards: Board[]) => {
+          this.boards = boards;
+          this.currentBoard = boards[0];
+
+        },
+        (error: Response) => console.log('error')
+      );
+
+  } // end getboards()
+
+  // Send Board Object to the Ouput of the component
+  send(){
+    let boards = this.boards
+        .filter((board: Board) => board.id === this.board_id);
+
+    this.currentBoard = boards[0];
+    this.sendBoard.emit(this.currentBoard);
+
+  }
+
+
+
 
 }

@@ -1,3 +1,4 @@
+
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Grade } from '../../interfaces/grade.interface';
@@ -21,9 +22,9 @@ export class SelectGradeAndSubjectComponent implements OnInit {
   ngOnInit() {
   }
 
-  
+
   getGradeFromGradeMenu(grade: Grade){
-    
+
     this.gradeAndSubject.setGrade(grade);
   }
 
@@ -31,7 +32,7 @@ export class SelectGradeAndSubjectComponent implements OnInit {
 
   // get Subject from subject-menu component
   getSubjectFromSubjectMenu(subject: Subject){
-    
+
     this.gradeAndSubject.setSubject(subject);
 
   }
@@ -39,5 +40,5 @@ export class SelectGradeAndSubjectComponent implements OnInit {
 
 
 
-  
+
 }

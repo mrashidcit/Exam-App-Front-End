@@ -1,7 +1,17 @@
 
-<md-select class="md-select" *ngIf="years"  placeholder="Year" required>
-  <md-option *ngFor="let year of years" value="year.id" >
-    {{year.name}}
+<md-select
+  class="md-select"
+  *ngIf="years"
+  [(ngModel)]="year_id"
+  placeholder="Year" required>
+  <md-option
+    *ngFor="let year of years"
+    [value]="year.id" >
+    {{year.year}}
   </md-option>
-  
+
 </md-select>
+
+<span *ngIf="!years">
+  Loading...
+</span>

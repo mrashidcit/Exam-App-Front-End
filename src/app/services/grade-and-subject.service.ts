@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { RouterStateSnapshot } from '@angular/router';
+import { Board } from '../interfaces/board.interface';
 import { Grade } from '../interfaces/grade.interface';
 import { Subject } from '../interfaces/subject.interface';
+import { Year } from '../interfaces/year.interface';
 
 @Injectable()
 export class GradeAndSubjectService {
 
   currentGrade: Grade;
   currentSubject: Subject;
+
+
 
   quizStatus: boolean = true;
   paperStatus: boolean;
@@ -18,7 +22,7 @@ export class GradeAndSubjectService {
 
   setGrade(grade: Grade){
     this.currentGrade = grade;
-    
+
   }
 
   setSubject(subject: Subject){
@@ -34,7 +38,6 @@ export class GradeAndSubjectService {
     this.resetFlags();
     this.paperStatus = paper;
   }
-
 
   // Getter methods
 
@@ -62,6 +65,41 @@ export class GradeAndSubjectService {
 
   }
 
-  
+
+
+
+  currentBoard: Board;
+  currentYear: Year;
+
+  // Setter Methods
+
+  setBoard(board: Board){
+
+    this.currentBoard = board;
+
+
+  }
+
+  setYear(year: Year){
+    this.currentYear = year;
+  }
+
+  // Getter Methods
+
+  getBoard(){
+
+    return this.currentBoard;
+  }
+
+  getYear(){
+    return this.currentYear;
+  }
+
+
+
+
+
+
+
 
 }

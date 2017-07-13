@@ -1,7 +1,11 @@
 <md-grid-list cols="1" rowHeight="90" >
   <md-grid-tile class="md-grid-tile">
-    <app-board-menu></app-board-menu>
-    <app-year-menu></app-year-menu>
+    <app-board-menu
+       (sendBoard)="getBoardFromBoardMenu($event)" >
+    </app-board-menu>
+    <app-year-menu
+       (sendYear)="getYearFromYearMenu($event)" >
+    </app-year-menu>
   </md-grid-tile>
 
   <md-grid-tile class="md-grid-tile">
@@ -16,6 +20,6 @@
       </a>
     </button>
   </md-grid-tile>
-  
-  
+
+
 </md-grid-list>

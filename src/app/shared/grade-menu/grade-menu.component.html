@@ -1,9 +1,11 @@
 
 
 
-<md-select  *ngIf="grades" (change)="send()" 
+<md-select  *ngIf="grades" (change)="send()"
         [(ngModel)]="grade_id" placeholder="Grade">
-  <md-option *ngFor="let grade of grades" [value]="grade.id">
+  <md-option
+    *ngFor="let grade of grades"
+    [value]="grade.id">
     {{grade.name}}
   </md-option>
 </md-select>

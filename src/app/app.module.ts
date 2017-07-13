@@ -20,6 +20,7 @@ import { QuizRoutingModule } from './quiz/quiz-routing.module';
 import { QuizModule } from './quiz/quiz.module';
 import { QuizComponent } from './quiz/quiz/quiz.component';
 import { ShowResultComponent } from './quiz/show-result/show-result.component';
+import { BoardService } from './services/board.service';
 import { DialogService } from './services/dialog.service';
 import { GradeService } from './services/grade.service';
 import { SubjectService } from './services/subject.service';
@@ -65,7 +66,7 @@ import 'HammerJS';
       GradeService,
       SubjectService,
       QuestionService,
-      DialogService,
+      DialogService
 
   ],
   bootstrap: [AppComponent]

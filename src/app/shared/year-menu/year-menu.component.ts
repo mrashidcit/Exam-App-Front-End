@@ -1,4 +1,8 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Year } from '../../interfaces/year.interface';
+import { YearService } from '../../services/year.service';
+
+import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
+
 
 @Component({
   selector: 'app-year-menu',
@@ -8,17 +12,47 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class YearMenuComponent implements OnInit {
 
-  years: [{id: number, name: String}];
+  @Output() sendYear = new EventEmitter<Year>();
 
-  constructor() { }
+  currentYear: Year;
+  year_id: number;
+
+  years: Year[];
+
+  constructor(
+    private yearService: YearService
+  ) { }
 
   ngOnInit() {
-    this.years = [
-      {id: 1 , name: "2011"},
-      {id: 2 , name: "2012"},
-      {id: 3 , name: "2013"},
-      
-    ];
+
+    this.getYears();
+
+
+  }
+
+  getYears(){
+
+    this.yearService.getYears()
+      .subscribe(
+        (years: Year[]) => {
+          this.years = years;
+          this.currentYear = years[0];
+
+
+        },
+        (error: Response) => console.log('error')
+      );
+
+  }
+
+  // Send Year Object to the Ouput of the component
+  send(){
+
+    let years = this.years
+      .filter((year: Year) => year.id === +this.year_id);
+
+    this.currentYear = years[0];
+    this.sendYear.emit(this.currentYear);
 
   }
 
