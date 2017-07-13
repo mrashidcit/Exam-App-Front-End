@@ -1,0 +1,41 @@
+<h3 *ngIf="loading">Loading...</h3>
+
+
+<div>Total Marks: {{total_marks}}</div>
+<div class="panel panel-default" *ngFor="let question of questions; let i = index ">
+  <div class="panel-heading">
+    {{i + 1}}. {{question.question}}
+    <span
+        [ngClass]="question.correct ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'">
+
+    </span>
+  </div>
+  <div class="panel-body">
+    <span [style.font-weight]="(question.user_answer == 'a') && (question.correct) ? 'bold' :
+                               (question.user_answer == 'a') ? 'bold' : '' "
+          [style.color]="!(question.correct) && (question.correct_option == 'a') ? 'red' : ''"
+    >
+      A: {{question.a}}
+    </span><br>
+    <span [style.font-weight]="(question.user_answer == 'b') && (question.correct) ? 'bold' :
+                               (question.user_answer == 'b') ? 'bold' : '' "
+          [style.color]="!(question.correct) && (question.correct_option == 'b') ? 'red' : ''"
+    >
+      B: {{question.b}}
+    </span><br>
+    <span [style.font-weight]="(question.user_answer == 'c') && (question.correct) ? 'bold' :
+                               (question.user_answer == 'c') ? 'bold' : '' "
+          [style.color]="!(question.correct) && (question.correct_option == 'c') ? 'red' : ''"
+    >
+      C: {{question.c}}
+    </span><br>
+    <span [style.font-weight]="(question.user_answer == 'd') && (question.correct) ? 'bold' :
+                               (question.user_answer == 'd') ? 'bold' : '' "
+          [style.color]="!(question.correct) && (question.correct_option == 'd') ? 'red' : ''"
+    >
+      D: {{question.d}}
+    </span><br>
+
+  </div>
+</div>
+

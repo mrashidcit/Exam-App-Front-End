@@ -4,8 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { SelectBoardAndYearComponent } from "./select-board-and-year/select-board-and-year.component";
 import { SelectGradeAndSubjectComponent } from "./select-grade-and-subject/select-grade-and-subject.component";
-import { QuizComponent } from "./quiz/quiz.component";
-import { HomeComponent } from "./home.component";
+import { HomePaperComponent } from './home-paper/home-paper.component';
+import { HomeComponent } from './home.component';
+import { QuizComponent } from './quiz/quiz.component';
 
 
 const homeRoutes: Routes = [
@@ -25,6 +26,10 @@ const homeRoutes: Routes = [
             {   
                 path: 'quiz',
                 component: QuizComponent,
+            },
+            {   
+                path: 'paper',
+                component: HomePaperComponent,
             }
             
             

@@ -75,9 +75,6 @@ export class QuizParentComponent implements OnInit, OnChanges {
     this.currentSubject = subject;
   }
 
-  setSubjectAndGrade(){
-    this
-  }
 
   getQuestionList() {
     this.questionService.getQuestionList(this.currentSubject.id)

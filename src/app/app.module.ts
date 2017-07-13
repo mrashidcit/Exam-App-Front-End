@@ -12,6 +12,7 @@ import { GradeComponent } from './grades/grade/grade.component';
 import { HomeModule } from './home/home.module';
 import { LoginRoutingModule } from './login/login-routing.module';
 import { LoginComponent } from './login/login.component';
+import { PaperModule } from './paper/paper.module';
 import { QuestionService } from './question.service';
 import { QuestionsModule } from './questions/questions.module';
 import { QuizParentComponent } from './quiz/quiz-parent/quiz-parent.component';
@@ -44,6 +45,7 @@ import 'HammerJS';
     HttpModule,
     MaterialComponentModule,
     SharedModule,
+    PaperModule,
     HomeModule,
     LoginRoutingModule,
     QuizModule,
