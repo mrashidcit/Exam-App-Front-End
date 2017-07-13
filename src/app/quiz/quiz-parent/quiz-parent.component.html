@@ -1,29 +1,7 @@
 
   <md-card *ngIf="!showQuizForm" class="row">
-    <md-card-title>Conduct Quiz</md-card-title>
+    <md-card-title>Loading...</md-card-title>
 
-    <md-card-content class="grade-subject-menu">
-
-      <app-grade-menu class="col-sm-4"
-          (sendGrade)="getGradefromGradeMenu($event)">
-
-      </app-grade-menu>
-
-      <app-subject-menu
-              (sendSubject)="getSubjectFromSubjectMenu($event)"
-              class="col-sm-4">
-
-      </app-subject-menu>
-
-    </md-card-content>
-    
-    <md-card-actions class="md-card-footer">
-                <button md-raised-button (click)="startQuiz()">
-                Start
-            </button><br>
-
-            Grade: {{currentGrade | json}}
-    </md-card-actions>
 </md-card>
 
   <div *ngIf="showQuizForm">

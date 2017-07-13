@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Grade } from '../../interfaces/grade.interface';
 import { Subject } from '../../interfaces/subject.interface';
 import { GradeAndSubjectService } from '../../services/grade-and-subject.service';
@@ -13,7 +14,8 @@ import { GradeAndSubjectService } from '../../services/grade-and-subject.service
 export class SelectGradeAndSubjectComponent implements OnInit {
 
   constructor(
-    private gradeAndSubject: GradeAndSubjectService
+    private gradeAndSubject: GradeAndSubjectService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -34,10 +36,7 @@ export class SelectGradeAndSubjectComponent implements OnInit {
 
   }
 
-  showGrade(){
-    console.log(this.gradeAndSubject.getGrade());
-    console.log(this.gradeAndSubject.getSubject());
-  }
+
 
 
   

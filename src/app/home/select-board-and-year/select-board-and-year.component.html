@@ -5,8 +5,17 @@
   </md-grid-tile>
 
   <md-grid-tile class="md-grid-tile">
-    <button md-raised-button><a routerLink="./select-grade-and-subject">Get Paper</a></button>
-    <button md-raised-button><a routerLink="./select-grade-and-subject">Start Quiz</a></button>
+    <button md-raised-button>
+      <a routerLink="./select-grade-and-subject">
+        Get Paper
+      </a>
+    </button>
+    <button md-raised-button>
+      <a (click)="getQuiz()">
+        Start Quiz
+      </a>
+    </button>
   </md-grid-tile>
+  
   
 </md-grid-list>

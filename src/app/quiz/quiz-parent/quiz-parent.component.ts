@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
 
 import {QuestionService} from "../../question.service";
@@ -15,7 +15,7 @@ import {DialogService} from "../../services/dialog.service";
   templateUrl: './quiz-parent.component.html',
   styleUrls: ['./quiz-parent.component.css']
 })
-export class QuizParentComponent implements OnInit {
+export class QuizParentComponent implements OnInit, OnChanges {
 
   questions: Question[];
 
@@ -30,6 +30,7 @@ export class QuizParentComponent implements OnInit {
       private router: Router,
       public dialogService: DialogService,
       private questionService: QuestionService
+      
   ) {
 
 
@@ -41,6 +42,17 @@ export class QuizParentComponent implements OnInit {
   ngOnInit() {
   }
 
+  ngOnChanges(){
+    console.log(this.currentGrade);
+    console.log(this.currentSubject);
+    
+    this.startQuiz();
+
+    
+    
+    
+  }
+
 
 
   canDeactivate(): Promise<boolean> | boolean {
@@ -49,7 +61,8 @@ export class QuizParentComponent implements OnInit {
     return this.dialogService.confirm('Discard changes?');
   }
 
-  currentGrade: Grade;
+  @Input() currentGrade: Grade;
+  @Input() currentSubject: Subject;
 
   // get Grade from grade-menu component
   getGradefromGradeMenu(grade: Grade){
@@ -57,11 +70,13 @@ export class QuizParentComponent implements OnInit {
     
   }
 
-  currentSubject: Subject;
-
   // get Subject form subject-menu component
   getSubjectFromSubjectMenu(subject: Subject){
     this.currentSubject = subject;
+  }
+
+  setSubjectAndGrade(){
+    this
   }
 
   getQuestionList() {
@@ -128,8 +143,7 @@ export class QuizParentComponent implements OnInit {
 
     this.result = false;
     this.showQuizForm = false;
-    this.result = false;
-
+    
   }
 
 

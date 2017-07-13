@@ -1,3 +1,5 @@
+import { GradeAndSubjectService } from '../../services/grade-and-subject.service';
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuizComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private gradeAndSubject :GradeAndSubjectService
+  ) { }
 
   ngOnInit() {
   }
