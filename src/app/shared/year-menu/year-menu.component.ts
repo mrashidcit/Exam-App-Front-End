@@ -36,13 +36,22 @@ export class YearMenuComponent implements OnInit {
       .subscribe(
         (years: Year[]) => {
           this.years = years;
-          this.currentYear = years[0];
+
+          this.defaultYear(years[0]);
 
 
         },
         (error: Response) => console.log('error')
       );
 
+  }
+
+  defaultYear(year: Year){
+    this.currentYear = year;
+    this.year_id = year.id;
+
+    // Send to output
+    this.send();
   }
 
   // Send Year Object to the Ouput of the component

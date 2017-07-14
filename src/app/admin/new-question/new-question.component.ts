@@ -3,8 +3,10 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
 import {Question} from "../../interfaces/question.interface";
 import {QuestionService} from "../../question.service";
-import {Subject} from "../../interfaces/subject.interface";
-import {Grade} from "../../interfaces/grade.interface";
+import { Board } from '../../interfaces/board.interface';
+import { Grade } from '../../interfaces/grade.interface';
+import { Subject } from '../../interfaces/subject.interface';
+import { Year } from '../../interfaces/year.interface';
 // ViewChild add
 
 
@@ -37,8 +39,16 @@ export class NewQuestionComponent implements OnInit {
 
   }
 
+  // Setting board_id, year_id & class_id of question
+  setQuestionIds(){
+    this.question.board_id = this.currentBoard.id; //board
+    this.question.year_id = this.currentYear.id; //year
+    this.question.class_id = this.currentGrade.id; //class
+  }
+
+
   add(question: Question): void {
-    //console.log(question);
+
 
     this.questionService.create(question)
         .then(
@@ -53,6 +63,8 @@ export class NewQuestionComponent implements OnInit {
   onSubmit(): void {
 
     this.submitted = true;
+
+    this.setQuestionIds(); // setting required Ids of question
 
     console.log(this.question);
 
@@ -112,9 +124,31 @@ export class NewQuestionComponent implements OnInit {
 
   }
 
+
+  currentBoard: Board;
+
+  // get from Menu
+  getBoardFromMenu(board: Board){
+    console.log(board);
+    this.currentBoard = board;
+
+  }
+
+  currentYear: Year;
+
+  // Year from Menu
+  getYearFromMenu(year: Year){
+    console.log(year);
+    this.currentYear = year;
+
+  }
+
   allowNewQestionToggle(){
     this.allow_new_question =
         this.allow_new_question ? false : true;
+
+    console.log(this.currentBoard);
+    console.log(this.currentYear);
 
     if(this.currentSubject && this.allow_new_question){
       this.question = new Question(this.currentSubject.id);

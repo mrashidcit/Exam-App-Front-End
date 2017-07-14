@@ -3,6 +3,7 @@
   class="md-select"
   *ngIf="years"
   [(ngModel)]="year_id"
+  (change)="send()"
   placeholder="Year" required>
   <md-option
     *ngFor="let year of years"

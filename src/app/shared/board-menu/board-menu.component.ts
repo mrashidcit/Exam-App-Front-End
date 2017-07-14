@@ -35,7 +35,8 @@ export class BoardMenuComponent implements OnInit {
       .subscribe(
         (boards: Board[]) => {
           this.boards = boards;
-          this.currentBoard = boards[0];
+
+          this.defaultBoard(boards[0]);
 
         },
         (error: Response) => console.log('error')
@@ -51,6 +52,13 @@ export class BoardMenuComponent implements OnInit {
     this.currentBoard = boards[0];
     this.sendBoard.emit(this.currentBoard);
 
+  }
+
+  defaultBoard(board: Board){
+    this.currentBoard = board;
+    this.board_id = this.currentBoard.id;
+
+    this.send();
   }
 
 

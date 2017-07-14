@@ -30,15 +30,13 @@ export class SelectBoardAndYearComponent implements OnInit {
   // get Board from Menu
   getBoardFromBoardMenu(board: Board){
     this.gradeAndSubject.setBoard(board);
-    //console.log(this.gradeAndSubject.getBoard());
+
   }
 
   // get Year from Menu
   getYearFromYearMenu(year: Year){
 
     this.gradeAndSubject.setYear(year);
-    console.log(this.gradeAndSubject.getYear());
-
 
   }
 
@@ -47,18 +45,21 @@ export class SelectBoardAndYearComponent implements OnInit {
   getQuiz(){
     this.gradeAndSubject.setQuizStatus(true);
 
-    console.log(this.gradeAndSubject.getBoard());
-    console.log(this.gradeAndSubject.getYear());
-
-
-
     this.router.navigate(["./home/select-grade-and-subject"]);
   }
 
   getPaper(){
     this.gradeAndSubject.setPaperStatus(true);
 
+    this.showLog();
+
     this.router.navigate(["./home/select-grade-and-subject"]);
+  }
+
+  showLog(){
+    console.log(this.gradeAndSubject.getBoard());
+    console.log(this.gradeAndSubject.getYear());
+
   }
 
 

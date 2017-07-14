@@ -1,24 +1,33 @@
 <md-grid-list cols="1" rowHeight="90" >
   <md-grid-tile class="md-grid-tile">
-    <app-grade-menu 
+    <app-grade-menu
       (sendGrade)="getGradeFromGradeMenu($event)">
 
     </app-grade-menu> <br>
 
     <br>
-    <app-subject-menu 
+    <app-subject-menu
       (sendSubject)="getSubjectFromSubjectMenu($event)">
 
     </app-subject-menu>
   </md-grid-tile>
 
   <md-grid-tile class="md-grid-tile">
-    <button md-raised-button >
+    <button md-raised-button *ngIf="quizStatus">
       <a routerLink="../quiz" >
-        Next
+        Quiz
       </a>
-      </button>
+    </button>
+
+    <button md-raised-button *ngIf="paperStatus">
+      <a routerLink="../paper" >
+        Paper
+      </a>
+    </button>
+
+
+
   </md-grid-tile>
-  
-  
+
+
 </md-grid-list>

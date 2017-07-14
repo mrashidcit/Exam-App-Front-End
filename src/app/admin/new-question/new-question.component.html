@@ -8,14 +8,27 @@
 
   <h3>Add New Question</h3>
 
-  <div *ngIf="!allow_new_question"  class="row">
+  <div *ngIf="!allow_new_question" >
 
-    <app-grade-menu class="col-sm-3"
-      (sendGrade)="getGrade($event)" ></app-grade-menu>
-    <app-subject-menu [grade]="currentGrade"
-      (sendSubject)="getSubjectfromSubjectMenu($event)"
-                      class="col-sm-3">
-    </app-subject-menu>
+    <div class="row">
+      <app-board-menu class="col-sm-3"
+        (sendBoard)="getBoardFromMenu($event)"></app-board-menu>
+
+      <app-year-menu class="col-sm-3"
+        (sendYear)="getYearFromMenu($event)"></app-year-menu>
+
+    </div>
+
+    <div class="row">
+      <app-grade-menu class="col-sm-3"
+        (sendGrade)="getGrade($event)" ></app-grade-menu>
+      <app-subject-menu [grade]="currentGrade"
+        (sendSubject)="getSubjectfromSubjectMenu($event)"
+                        class="col-sm-3">
+      </app-subject-menu>
+
+    </div>
+
 
     <button  (click)="allowNewQestionToggle()">ok</button>
 

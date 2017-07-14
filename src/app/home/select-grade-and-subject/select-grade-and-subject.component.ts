@@ -14,12 +14,18 @@ import { GradeAndSubjectService } from '../../services/grade-and-subject.service
 })
 export class SelectGradeAndSubjectComponent implements OnInit {
 
+  paperStatus: boolean;
+  quizStatus: boolean;
+
   constructor(
     private gradeAndSubject: GradeAndSubjectService,
     private router: Router
   ) { }
 
   ngOnInit() {
+    this.paperStatus = this.gradeAndSubject.getPaperStatus();
+    this.quizStatus = this.gradeAndSubject.getQuizStatus();
+
   }
 
 

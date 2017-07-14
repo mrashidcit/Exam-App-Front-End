@@ -5,12 +5,17 @@
 <div class="panel panel-default" *ngFor="let question of questions; let i = index ">
   <div class="panel-heading">
     {{i + 1}}. {{question.question}}
-    <span
-        [ngClass]="question.correct ? 'glyphicon glyphicon-ok' : 'glyphicon glyphicon-remove'">
 
-    </span>
   </div>
   <div class="panel-body">
+    <button
+      class="btn-show-answer" *ngIf="!showAnswer[i]" (click)="setShowAnswer(i)" >
+        Show Answer
+    </button>
+    <span class="span-show-answer" *ngIf="showAnswer[i]">{{question.correct_option }}</span>
+
+    <br>
+
     <span [style.font-weight]="(question.user_answer == 'a') && (question.correct) ? 'bold' :
                                (question.user_answer == 'a') ? 'bold' : '' "
           [style.color]="!(question.correct) && (question.correct_option == 'a') ? 'red' : ''"
