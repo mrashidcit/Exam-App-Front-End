@@ -16,6 +16,8 @@ export class YearService {
     return this.http.get(this.url)
       .map((response: Response) => {
 
+        console.log(response.json().years);
+
         return response.json().years;
       }
       );

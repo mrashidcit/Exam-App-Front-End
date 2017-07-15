@@ -14,6 +14,8 @@ export class BoardService {
     return this.http.get(this.url)
       .map((response: Response) => {
 
+          //console.log(response.json().boards);
+
           return response.json().boards;
 
         }
