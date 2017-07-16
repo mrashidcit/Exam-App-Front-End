@@ -1,7 +1,7 @@
 <h3 *ngIf="loading">Loading...</h3>
 
 
-<div>Total Marks: {{total_marks}}</div>
+<div>Total questions: {{totalQuestions}}</div>
 <div class="panel panel-default" *ngFor="let question of questions; let i = index ">
   <div class="panel-heading">
     {{i + 1}}. {{question.question}}

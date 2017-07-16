@@ -18,6 +18,8 @@ export class ShowPaperComponent implements OnInit {
   @Input() currentGrade: Grade;
   @Input() currentSubject: Subject;
 
+  totalQuestions: number;
+
   questions: Question[];
 
   // show Answer set to true when user click
@@ -48,7 +50,7 @@ export class ShowPaperComponent implements OnInit {
         (questions: Question[]) => {
           this.questions = questions;
           this.toggleLoading();
-          this.total_questions = this.questions.length;
+          this.totalQuestions = this.questions.length;
           console.log(questions);
 
         },
