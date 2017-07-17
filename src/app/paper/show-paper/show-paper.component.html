@@ -16,27 +16,18 @@
 
     <br>
 
-    <span [style.font-weight]="(question.user_answer == 'a') && (question.correct) ? 'bold' :
-                               (question.user_answer == 'a') ? 'bold' : '' "
-          [style.color]="!(question.correct) && (question.correct_option == 'a') ? 'red' : ''"
-    >
+    <span >
       A: {{question.a}}
     </span><br>
-    <span [style.font-weight]="(question.user_answer == 'b') && (question.correct) ? 'bold' :
-                               (question.user_answer == 'b') ? 'bold' : '' "
-          [style.color]="!(question.correct) && (question.correct_option == 'b') ? 'red' : ''"
+    <span
     >
       B: {{question.b}}
     </span><br>
-    <span [style.font-weight]="(question.user_answer == 'c') && (question.correct) ? 'bold' :
-                               (question.user_answer == 'c') ? 'bold' : '' "
-          [style.color]="!(question.correct) && (question.correct_option == 'c') ? 'red' : ''"
+    <span
     >
       C: {{question.c}}
     </span><br>
-    <span [style.font-weight]="(question.user_answer == 'd') && (question.correct) ? 'bold' :
-                               (question.user_answer == 'd') ? 'bold' : '' "
-          [style.color]="!(question.correct) && (question.correct_option == 'd') ? 'red' : ''"
+    <span
     >
       D: {{question.d}}
     </span><br>
