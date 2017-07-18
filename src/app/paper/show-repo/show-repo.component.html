@@ -1,3 +1,19 @@
-<p>
-  show-repo works!
-</p>
+<div *ngIf="exams">
+  <div>
+
+    <h4>Board: {{currentBoard.name}}</h4>
+    <h4>Year: {{currentYear.year}}</h4>
+    <h4>Grade: {{currentGrade.name}}</h4>
+    <h4>Subject: {{currentSubject.name}}</h4>
+
+  </div>
+  <div *ngFor="let exam of exams">
+    <img  class="img-responsive"
+          src="{{server}}{{exam.file_name}}"
+          width="100%"
+          alt="">
+  </div>
+
+</div>
+
+<h3 *ngIf="!exams">Loading...</h3>

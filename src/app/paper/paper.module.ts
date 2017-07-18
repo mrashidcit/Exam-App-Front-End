@@ -1,3 +1,4 @@
+import { ShowRepoComponent } from './show-repo/show-repo.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -8,6 +9,7 @@ import { MaterialComponentModule } from '../shared/material-component/material-c
 import { PaperRoutingModule } from './paper-routing.module';
 import { PaperComponent } from './paper.component';
 import { ShowPaperComponent } from './show-paper/show-paper.component';
+import { ExamRepoService } from "app/services/exam-repo.service";
 
 @NgModule({
   imports: [
@@ -20,17 +22,20 @@ import { ShowPaperComponent } from './show-paper/show-paper.component';
 
   ],
   declarations: [
-    PaperComponent, ShowPaperComponent
-    
+    PaperComponent, ShowPaperComponent,
+    ShowRepoComponent
+
     ],
 
   exports: [
     ShowPaperComponent,
+    ShowRepoComponent
 
   ],
   providers: [
     QuestionService,
-    
+    ExamRepoService,
+
   ]
 })
 export class PaperModule { }

@@ -27,9 +27,6 @@ import { SubjectService } from './services/subject.service';
 import { MaterialComponentModule } from './shared/material-component/material-component.module';
 import { SharedModule } from './shared/shared.module';
 import 'HammerJS';
-import { ShowRepoComponent } from './show-repo/show-repo.component';
-
-
 
 
 
@@ -39,7 +36,6 @@ import { ShowRepoComponent } from './show-repo/show-repo.component';
     GradeListComponent,
     GradeComponent,
     LoginComponent,
-    ShowRepoComponent,
 
   ],
   imports: [

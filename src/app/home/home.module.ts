@@ -1,3 +1,4 @@
+import { ExamRepoManagementComponent } from './exam-repo-management/exam-repo-management.component';
 
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -40,7 +41,8 @@ import { HomeComponent } from "app/home/home.component";
     HomeComponent,
     SelectGradeAndSubjectComponent,
     QuizComponent,
-    HomePaperComponent
+    HomePaperComponent,
+    ExamRepoManagementComponent,
   ],
 
   providers: [
